@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>表格标签:</h3>table标签用于创建表格(整个表格)，tr标签用于创建行(表格的一行)，th标签用于创建表头(表头单元格，会居中加粗)，td标签用于创建单元格(一个单元格)。<br>
+
+    table包含tr, tr包含td或者th.<br><br>
+
+    快捷键： shift+alt+↓: 在当前行插入一行<br>
+
+    <h4>参数选项说明：</h4>
+    border: 边框宽度，默认值为0，单位为像素<br>
+    width: 表格宽度，默认值为100%，单位为像素或百分比<br>
+    height: 表格高度，默认值为100%，单位为像素或百分比<br>
+    cellspacing: 单元格边框与单元格之间的距离，默认值为0，单位为像素<br>
+    cellpadding: 单元格与单元格内容之间的距离，默认值为0，单位为像素<br>
+    align: 表格水平对齐方式，可选值："left"、"center"、"right"<br>
+    valign: 表格垂直对齐方式，可选值："top"、"middle"、"bottom"<br><br>
+
+    <table border="1" width="50%" height="50%" cellspacing="0" cellpadding="10" align="center">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>电话</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>20</td>
+                <td>男</td>
+                <td>123456789</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>25</td>
+                <td>女</td>
+                <td>123456789</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>22</td>
+                <td>男</td>
+                <td>123456789</td>
+            </tr>
+            <tr>
+                <td>刘柳</td>
+                <td>29</td>
+                <td>男</td>
+                <td>123456789</td>
+            </tr>
+        </tbody>
+    </table>
+
+<p>------------------------------------------------------------------------------------------------------------</p>
+    单元格的合并：使用colspan和rowspan属性，colspan属性用于合并当前单元格右边的单元格，rowspan属性用于合并当前单元格下边的单元格。<br>
+    步骤：1.先确定跨行还是跨列
+    2.找好目标单元格（跨列合并，左侧是目标单元格；跨行合并，上方是目标单元格）
+    3.删除的多余的单元格
+    
+    <table border="1" width="50%" height="50%" cellspacing="0" cellpadding="10" align="center">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>电话</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 第一行 -->
+            <tr>
+                <td>张三</td>
+                <td rowspan="2">20</td>
+                <td>男</td>
+                <td>123456789</td>
+            </tr>
+            <!-- 第二行 -->
+            <tr>
+                <td>李四</td>
+                <td>女</td>
+                <td>123456789</td>
+            </tr>
+            <!-- 第三行 -->
+            <tr>
+                <td>王五</td>
+                <td>22</td>
+                <td rowspan="3">男</td>
+                <td>123456789</td>
+            </tr>
+            <!-- 第四行 -->
+            <tr>
+                <td rowspan="2">刘柳</td>
+                <td rowspan="2">29</td>
+                <td>123456789</td>
+            </tr>
+            <!-- 第五行 -->
+            <tr>
+                <td>987654321</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</body>
+</html>
