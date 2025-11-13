@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <h3>这是无序列表标签</h3>
+    快捷方式：&lt;ul&gt;li*n(回车)&lt;/ul&gt; 就会生成n个无序列表项。<br><br>
+
+    样式选项： list-style-type 属性可以设置列表项的符号类型，有三种值： disc（实心圆）， circle（空心圆）， square（实心方块）。<br>
+    或者： type 属性可以设置列表项的符号类型，有三种值： disc（实心圆）， circle（空心圆）， square（实心方块）。<br><br>
+
+
+    <ul style="list-style-type: circle;">
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>草莓</li>
+    </ul>
+
+    <ul type="square;">
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>草莓</li>
+    </ul>
+
+    <h3>这是有序列表标签</h3>
+    快捷方式：&lt;ol&gt;li*n(回车)&lt;/ol&gt; 就会生成n个有序列表项。<br><br>
+
+    样式选项：
+    list-style-type 属性可以设置列表项的符号类型，有五种值： decimal（1、2、3、4、5）， lower-roman（i、ii、iii、iv、v）， upper-roman（I、II、III、IV、V）， lower-alpha（a、b、c、d、e）， upper-alpha（A、B、C、D、E）。<br>
+    或者： type 属性可以设置列表项的符号类型，有五种值： 1、a、i、A、I。<br>
+    start 属性可以设置列表项的起始值，默认是 1。<br><br>
+
+
+    <ol style="list-style-type: decimal;">
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>草莓</li>
+    </ol>
+
+    <ol type="A">
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>草莓</li>
+    </ol>
+
+    <ol type="i">
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>草莓</li>
+    </ol>
+
+    <ol type="I" start="2">
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>草莓</li>
+    </ol>
+
+    <ol type="1" start="2">
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>草莓</li>
+    </ol>
+
+    <ol type="a">
+        <li>苹果</li>
+        <li>橘子</li>
+        <li>草莓</li>
+    </ol>
+
+    <h3>这是定义列表标签</h3>
+    快捷方式：&lt;dl&gt;dt+dd*n(回车)&lt;/dl&gt; 就会生成一个定义列表。<br><br>
+
+    样式选项：
+    无。<br><br>
+
+    顺序： dl->dt->dd， dt表示定义标题， dd表示定义内容。<br><br>
+
+    <dl>
+        <dt>自定义苹果</dt>
+        <dd>一种红色的果实，营养价值较高。</dd>
+        <dt>橘子</dt>
+        <dd>一种樱桃科的果实，营养价值较高。</dd>
+        <dt>草莓</dt>
+        <dd>一种红色的果实，营养价值较高。</dd>
+    </dl>
+    
+</body>
+</html>
