@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线体验 - 智联未来</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/advanced.css">
+    <style>
+        .experience-page {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e8 50%, #dcedc8 100%);
+            min-height: 80vh;
+            margin-top: 0;
+        }
+        
+        .experience-header {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 4rem;
+        }
+        
+        .experience-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00695c 0%, #00897b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(0, 105, 92, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(0, 105, 92, 0.6));
+            }
+        }
+        
+        .experience-header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        
+        .experience-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .product-selector {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .product-select-btn {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            color: #2c3e50;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .product-select-btn:hover,
+        .product-select-btn.active {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            color: #0f0f0f;
+            border-color: #00ff88;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+        
+        .experience-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .experience-3d {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-3d-container {
+            width: 100%;
+            height: 500px;
+            perspective: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .product-3d-model {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease;
+        }
+        
+        .product-face-3d {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            backface-visibility: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .product-face-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border-radius: 18px;
+            z-index: 1;
+        }
+        
+        .product-face-3d.front {
+            background-image: url('../images/智能家居控制中心.png');
+        }
+        
+        .product-face-3d.back {
+            background-image: url('../images/智能家居控制中心.png');
+        }
+        
+        .product-face-3d.left {
+            background-image: url('../images/智能家居控制中心.png');
+        }
+        
+        .product-face-3d.right {
+            background-image: url('../images/智能家居控制中心.png');
+        }
+        
+        .product-face-3d.top {
+            background-image: url('../images/智能家居控制中心.png');
+        }
+        
+        .product-face-3d.bottom {
+            background-image: url('../images/智能家居控制中心.png');
+        }
+        
+        .product-face-3d.front {
+            transform: rotateY(0deg) translateZ(150px);
+        }
+        
+        .product-face-3d.back {
+            transform: rotateY(180deg) translateZ(150px);
+        }
+        
+        .product-face-3d.left {
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+        
+        .product-face-3d.right {
+            transform: rotateY(90deg) translateZ(150px);
+        }
+        
+        .product-face-3d.top {
+            transform: rotateX(90deg) translateZ(150px);
+        }
+        
+        .product-face-3d.bottom {
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+        
+        .rotate-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .rotate-btn {
+            padding: 0.8rem 2rem;
+            background: white;
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            color: #2c3e50;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .rotate-btn:hover {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            color: #0f0f0f;
+            border-color: #00ff88;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+        
+.product-info-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: #2c3e50;
+        }
+        
+        .product-info-panel h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .product-info-panel p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+        
+        .product-specs {
+            margin-bottom: 2rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .spec-label {
+            opacity: 0.8;
+        }
+        
+        .spec-value {
+            font-weight: 600;
+            color: #00ff88;
+        }
+        
+        .config-section {
+            margin-top: 2rem;
+        }
+        
+        .config-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .config-option {
+            padding: 1.2rem;
+            background: white;
+            border: 2px solid rgba(0, 255, 136, 0.2);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .config-option:hover,
+        .config-option.selected {
+            border-color: #00ff88;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+        }
+        
+        .price-display {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 968px) {
+            .experience-main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container nav-container-expanded">
+                <div class="logo">
+                    <a href="../index.html">智联未来</a>
+                </div>
+                <ul class="nav-menu many-items">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">解决方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cases.html" class="nav-link">案例展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">团队介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experience.html" class="nav-link active">在线体验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">新闻动态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recommend.html" class="nav-link">智能推荐</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="experience-page">
+            <div class="experience-container">
+                <div class="experience-header">
+                    <h1>在线体验中心</h1>
+                    <p>360度查看产品，实时配置，体验智能科技的魅力</p>
+                </div>
+                
+                <div class="product-selector">
+                    <button class="product-select-btn active" data-product="home">智能家居中心</button>
+                    <button class="product-select-btn" data-product="desk">智能办公桌</button>
+                    <button class="product-select-btn" data-product="watch">智能手环</button>
+                    <button class="product-select-btn" data-product="car">智能电动车</button>
+                </div>
+                
+                <div class="experience-main">
+                    <div class="experience-3d">
+                        <div class="product-3d-container" id="product3DContainer">
+                            <div class="product-3d-model" id="product3DModel">
+                                <div class="product-face-3d front"></div>
+                                <div class="product-face-3d back"></div>
+                                <div class="product-face-3d left"></div>
+                                <div class="product-face-3d right"></div>
+                                <div class="product-face-3d top"></div>
+                                <div class="product-face-3d bottom"></div>
+                            </div>
+                        </div>
+                        <div class="rotate-controls">
+                            <button class="rotate-btn" data-direction="left">← 左转</button>
+                            <button class="rotate-btn" data-direction="right">右转 →</button>
+                            <button class="rotate-btn" data-direction="reset">重置</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-info-panel">
+                        <h2 id="productName">智能家居控制中心</h2>
+                        <p id="productDesc">全屋智能设备统一控制，支持语音和APP操作，打造智慧家庭。通过一个控制中心，轻松管理家中所有智能设备。</p>
+                        
+                        <div class="product-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">产品型号</span>
+                                <span class="spec-value" id="productModel">SmartHome Pro</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">连接方式</span>
+                                <span class="spec-value">WiFi / 蓝牙 / Zigbee</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">支持设备数</span>
+                                <span class="spec-value">100+ 设备</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">语音助手</span>
+                                <span class="spec-value">支持</span>
+                            </div>
+                        </div>
+                        
+                        <div class="config-section">
+                            <h3 style="margin-bottom: 1rem;">配置选项</h3>
+                            <div class="config-options">
+                                <div class="config-option" data-option="basic">
+                                    <div>基础版</div>
+                                    <div style="font-size: 0.9rem; opacity: 0.8;">¥2,999</div>
+                                </div>
+                                <div class="config-option selected" data-option="pro">
+                                    <div>专业版</div>
+                                    <div style="font-size: 0.9rem; opacity: 0.8;">¥3,999</div>
+                                </div>
+                            </div>
+                            
+                            <div class="price-display" id="totalPrice">¥3,999</div>
+                            
+                            <a href="contact.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block;">立即咨询</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>智联未来</h3>
+                    <p>用科技重新定义生活，让智能融入每一个场景，打造更美好的未来。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>电话：123-456-7899</p>
+                    <p>邮箱：md123456@edu.com</p>
+                    <p>地址：西安明德理工学院旁边500米</p>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅资讯</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="请输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h4>快速服务</h4>
+                    <ul>
+                        <li><a href="support.html">技术支持</a></li>
+                        <li><a href="careers.html">招聘信息</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="help.html">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智联未来科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <span>↑</span>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/advanced.js"></script>
+    <script>
+        // 3D产品体验
+        class Product3DExperience {
+            constructor() {
+                this.model = document.getElementById('product3DModel');
+                this.rotationY = 0;
+                this.rotationX = 0;
+                this.isDragging = false;
+                this.startX = 0;
+                this.startY = 0;
+                this.currentProduct = 'home';
+                this.products = {
+                    home: { icon: '', name: '智能家居控制中心', desc: '全屋智能设备统一控制，支持语音和APP操作，打造智慧家庭。', model: 'SmartHome Pro', image: '../images/智能家居控制中心.png' },
+                    desk: { icon: '', name: '智能升降办公桌', desc: '可调节高度，久坐提醒，健康办公新体验。', model: 'SmartDesk Pro', image: '../images/智能升降办公桌.jpg' },
+                    watch: { icon: '', name: '智能健康手环Pro', desc: '24小时健康监测，运动数据精准记录，睡眠分析。', model: 'SmartWatch Pro', image: '../images/智能健康手环Pro.jpg' },
+                    car: { icon: '', name: '智能电动车', desc: '长续航、智能导航、防盗定位，出行更便捷。', model: 'SmartBike Pro', image: '../images/智能电动车.jpg' }
+                };
+                this.init();
+            }
+            
+            init() {
+                this.setupProductSelector();
+                this.setupRotateControls();
+                this.setupDragControls();
+                this.setupConfigOptions();
+            }
+            
+            setupProductSelector() {
+                document.querySelectorAll('.product-select-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.product-select-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        this.switchProduct(btn.dataset.product);
+                    });
+                });
+            }
+            
+            switchProduct(productId) {
+                this.currentProduct = productId;
+                const product = this.products[productId];
+                
+                // 更新3D方块的图片
+                this.updateProductImages(product.image);
+                
+                // 更新信息
+                document.getElementById('productName').textContent = product.name;
+                document.getElementById('productDesc').textContent = product.desc;
+                document.getElementById('productModel').textContent = product.model;
+                
+                // 重置旋转
+                this.resetRotation();
+            }
+            
+            updateProductImages(imagePath) {
+                const faces = document.querySelectorAll('.product-face-3d');
+                faces.forEach(face => {
+                    face.style.backgroundImage = `url('${imagePath}')`;
+                });
+            }
+            
+            setupRotateControls() {
+                document.querySelectorAll('.rotate-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const direction = btn.dataset.direction;
+                        if (direction === 'left') {
+                            this.rotationY -= 45;
+                        } else if (direction === 'right') {
+                            this.rotationY += 45;
+                        } else if (direction === 'reset') {
+                            this.resetRotation();
+                        }
+                        this.updateRotation();
+                    });
+                });
+            }
+            
+            setupDragControls() {
+                const container = document.getElementById('product3DContainer');
+                
+                container.addEventListener('mousedown', (e) => {
+                    this.isDragging = true;
+                    this.startX = e.clientX;
+                    this.startY = e.clientY;
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (this.isDragging) {
+                        const deltaX = e.clientX - this.startX;
+                        const deltaY = e.clientY - this.startY;
+                        this.rotationY += deltaX * 0.5;
+                        this.rotationX -= deltaY * 0.5;
+                        this.startX = e.clientX;
+                        this.startY = e.clientY;
+                        this.updateRotation();
+                    }
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    this.isDragging = false;
+                });
+            }
+            
+            setupConfigOptions() {
+                document.querySelectorAll('.config-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        document.querySelectorAll('.config-option').forEach(opt => opt.classList.remove('selected'));
+                        option.classList.add('selected');
+                        this.updatePrice(option.dataset.option);
+                    });
+                });
+            }
+            
+            updateRotation() {
+                this.model.style.transform = `rotateY(${this.rotationY}deg) rotateX(${this.rotationX}deg)`;
+            }
+            
+            resetRotation() {
+                this.rotationY = 0;
+                this.rotationX = 0;
+                this.updateRotation();
+            }
+            
+            updatePrice(option) {
+                const prices = {
+                    basic: 2999,
+                    pro: 3999
+                };
+                document.getElementById('totalPrice').textContent = `¥${prices[option]}`;
+            }
+        }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            new Product3DExperience();
+        });
+    </script>
+</body>
+</html>
+

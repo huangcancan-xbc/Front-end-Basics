@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>国债认购小程序</title>
+    <style type="text/css">
+        fieldset {
+            width: 650px;
+            height: 260px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        
+        legend, input, label {
+            font-size: 18px;
+            margin: 5px 2px;
+        }
+        
+        legend {
+            text-align: center;
+        }
+        
+        p {
+            text-indent: 2em;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        blockquote {
+            text-align: center;
+        }
+    </style>
+    <script type="text/javascript">
+        function check() {
+            // 获取国债期限选择
+            var gzOptions = document.getElementsByName('gz');
+            var selectedRate = 0;
+            var selectedPeriod = "";
+            
+            for (var i = 0; i < gzOptions.length; i++) {
+                if (gzOptions[i].checked) {
+                    var optionText = gzOptions[i].value;
+                    if (optionText === "一年") {
+                        selectedRate = 0.03;
+                        selectedPeriod = "一年";
+                    } else if (optionText === "两年") {
+                        selectedRate = 0.0335;
+                        selectedPeriod = "两年";
+                    } else if (optionText === "三年") {
+                        selectedRate = 0.0375;
+                        selectedPeriod = "三年";
+                    } else if (optionText === "五年") {
+                        selectedRate = 0.042;
+                        selectedPeriod = "五年";
+                    }
+                    break;
+                }
+            }
+            
+            // 检查是否选择了国债期限
+            if (selectedRate === 0) {
+                alert("请选择国债期限！");
+                return;
+            }
+            
+            // 获取认购金额
+            var amount = document.getElementById('number').value;
+            
+            // 检查是否输入了认购金额
+            if (amount === "" || amount <= 0) {
+                alert("请输入有效的认购金额！");
+                document.getElementById('number').focus();
+                return;
+            }
+            
+            // 确认信息
+            var confirmMsg = "您选择的是" + selectedPeriod + "期国债，利率为" + (selectedRate * 100).toFixed(2) + "%，认购金额为" + amount + "元。\n\n确认购买吗？";
+            
+            if (confirm(confirmMsg)) {
+                // 生成验证码
+                var verificationCode = Math.floor(1000 + Math.random() * 9000);
+                
+                // 提示输入验证码
+                var userInput = prompt("请输入验证码：" + verificationCode);
+                
+                if (userInput === verificationCode.toString()) {
+                    // 计算收益
+                    var principal = parseFloat(amount);
+                    var interest = principal * selectedRate;
+                    var totalAmount = principal + interest;
+                    
+                    // 显示认购信息
+                    alert("认购成功！\n\n国债期限：" + selectedPeriod + "\n年利率：" + (selectedRate * 100).toFixed(2) + "%\n认购金额：" + principal.toFixed(2) + "元\n预期收益：" + interest.toFixed(2) + "元\n到期本息合计：" + totalAmount.toFixed(2) + "元");
+                } else {
+                    alert("验证码错误，交易失败！");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="bondForm" action="" method="post">
+        <fieldset>
+            <legend>国债认购</legend>
+            
+            <p>购买国债就是认购国家借的债，即国家债券。它是国家为筹措资金而向投资者出具的书面借款凭证，承诺在一定的时期内按约定的条件，按期支付利息和到期归还本金。</p>
+            
+            <label>国债期限：</label>
+            <input type="radio" name="gz" value="一年">一年，3.0%
+            <input type="radio" name="gz" value="两年">两年，3.35%
+            <input type="radio" name="gz" value="三年">三年，3.75%
+            <input type="radio" name="gz" value="五年">五年，4.20%
+            
+            <br><br>
+            <label>认购金额：</label>
+            <input type="number" id="number" step="5000" min="10000" value="10000">
+            
+            <br><br>
+            <blockquote>
+                <input type="button" value="提交" onclick="check();">
+                <input type="reset" value="重置">
+            </blockquote>
+        </fieldset>
+    </form>
+</body>
+</html>

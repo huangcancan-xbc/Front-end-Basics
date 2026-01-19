@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心 - 智联未来</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/advanced.css">
+</head>
+<body>
+    
+    
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container nav-container-expanded">
+                <div class="logo">
+                    <a href="../index.html">智联未来</a>
+                </div>
+                <ul class="nav-menu many-items">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link active">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">解决方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cases.html" class="nav-link">案例展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">团队介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experience.html" class="nav-link">在线体验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">新闻动态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recommend.html" class="nav-link">智能推荐</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 页面标题 -->
+        <section class="page-header">
+            <div class="container">
+                <h1>产品中心</h1>
+                <p>探索智能生活，体验科技魅力</p>
+            </div>
+        </section>
+
+        <!-- 产品筛选 -->
+        <section class="product-filter">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">全部产品</button>
+                    <button class="filter-btn" data-filter="home">智能家居</button>
+                    <button class="filter-btn" data-filter="office">智能办公</button>
+                    <button class="filter-btn" data-filter="health">智能健康</button>
+                    <button class="filter-btn" data-filter="travel">智能出行</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品网格 -->
+        <section class="products-grid">
+            <div class="container">
+                <div class="products-container">
+                    <!-- 智能家居产品 -->
+                    <div class="product-item" data-category="home">
+                        <div class="product-image">
+                            <img src="../images/智能家居控制中心.png" alt="智能家居控制中心">
+                            <div class="product-overlay">
+                                <a href="product-detail-1.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">智能家居</span>
+                            <h3>智能家居控制中心</h3>
+                            <p>全屋智能设备统一控制，支持语音和APP操作，打造智慧家庭</p>
+                            <div class="product-price">¥2,999起</div>
+                        </div>
+                    </div>
+
+                    <div class="product-item" data-category="home">
+                        <div class="product-image">
+                            <img src="../images/智能照明系统.png" alt="智能照明系统">
+                            <div class="product-overlay">
+                                <a href="#" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">智能家居</span>
+                            <h3>智能照明系统</h3>
+                            <p>可调色温亮度，支持场景模式，节能环保</p>
+                            <div class="product-price">¥599起</div>
+                        </div>
+                    </div>
+
+                    <div class="product-item" data-category="home">
+                        <div class="product-image">
+                            <img src="../images/智能门锁Pro.png" alt="智能门锁Pro">
+                            <div class="product-overlay">
+                                <a href="#" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">智能家居</span>
+                            <h3>智能门锁Pro</h3>
+                            <p>指纹识别、密码、APP多重解锁，安全便捷</p>
+                            <div class="product-price">¥1,299起</div>
+                        </div>
+                    </div>
+
+                    <!-- 智能办公产品 -->
+                    <div class="product-item" data-category="office">
+                        <div class="product-image">
+                            <img src="../images/智能升降办公桌.jpg" alt="智能升降办公桌">
+                            <div class="product-overlay">
+                                <a href="product-detail-2.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">智能办公</span>
+                            <h3>智能升降办公桌</h3>
+                            <p>可调节高度，久坐提醒，健康办公新体验</p>
+                            <div class="product-price">¥3,999起</div>
+                        </div>
+                    </div>
+
+                    <div class="product-item" data-category="office">
+                        <div class="product-image">
+                            <img src="../images/智能会议系统.jpg" alt="智能会议系统">
+                            <div class="product-overlay">
+                                <a href="#" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">智能办公</span>
+                            <h3>智能会议系统</h3>
+                            <p>4K高清视频会议，AI降噪，远程协作更高效</p>
+                            <div class="product-price">¥8,999起</div>
+                        </div>
+                    </div>
+
+                    <!-- 智能健康产品 -->
+                    <div class="product-item" data-category="health">
+                        <div class="product-image">
+                            <img src="../images/智能健康手环Pro.jpg" alt="智能健康手环Pro">
+                            <div class="product-overlay">
+                                <a href="product-detail-3.html" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">智能健康</span>
+                            <h3>智能健康手环Pro</h3>
+                            <p>24小时健康监测，运动数据精准记录，睡眠分析</p>
+                            <div class="product-price">¥599起</div>
+                        </div>
+                    </div>
+
+                    <div class="product-item" data-category="health">
+                        <div class="product-image">
+                            <img src="../images/智能体脂秤.webp" alt="智能体脂秤">
+                            <div class="product-overlay">
+                                <a href="#" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">智能健康</span>
+                            <h3>智能体脂秤</h3>
+                            <p>精准测量体脂率、肌肉量等多项健康指标</p>
+                            <div class="product-price">¥299起</div>
+                        </div>
+                    </div>
+
+                    <!-- 智能出行产品 -->
+                    <div class="product-item" data-category="travel">
+                        <div class="product-image">
+                            <img src="../images/智能电动车.jpg" alt="智能电动车">
+                            <div class="product-overlay">
+                                <a href="#" class="view-details">查看详情</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">智能出行</span>
+                            <h3>智能电动车</h3>
+                            <p>长续航、智能导航、防盗定位，出行更便捷</p>
+                            <div class="product-price">¥3,999起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 产品详情模态框 -->
+        <div class="product-modal" id="productModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-image">
+                        <img src="" alt="产品详情">
+                    </div>
+                    <div class="modal-info">
+                        <h2></h2>
+                        <p></p>
+                        <div class="modal-features">
+                            <h3>产品特点</h3>
+                            <ul></ul>
+                        </div>
+                        <div class="modal-price"></div>
+                        <button class="btn btn-primary">立即咨询</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 产品优势 -->
+        <section class="product-advantages">
+            <div class="container">
+                <h2 class="section-title">产品优势</h2>
+                <div class="advantages-grid">
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <img src="../images/设计规范.svg" alt="定制化">
+                        </div>
+                        <h3>定制化解决方案</h3>
+                        <p>根据客户需求量身定制，确保每个产品都符合品牌特色</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <img src="../images/金奖杯.svg" alt="高品质">
+                        </div>
+                        <h3>高品质交付</h3>
+                        <p>严格的质量控制流程，确保每个产品都达到最高标准</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <img src="../images/服务.svg" alt="完善服务">
+                        </div>
+                        <h3>完善售后服务</h3>
+                        <p>提供全方位的售后支持，确保产品持续稳定运行</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-icon">
+                            <img src="../images/科技.svg" alt="合理价格">
+                        </div>
+                        <h3>合理价格</h3>
+                        <p>透明的定价体系，提供性价比最高的产品和服务</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>智联未来</h3>
+                    <p>专注于为企业提供高品质的设计服务，助力品牌成长。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="../images/微信.svg" alt="微信"></a>
+                        <a href="#"><img src="../images/微博.svg" alt="微博"></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>电话：123-456-7899</p>
+                    <p>邮箱：md123456@edu.com</p>
+                    <p>地址：西安明德理工学院旁边500米</p>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅资讯</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="请输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h4>快速服务</h4>
+                    <ul>
+                        <li><a href="support.html">技术支持</a></li>
+                        <li><a href="careers.html">招聘信息</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="help.html">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智联未来科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <span>↑</span>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/advanced.js"></script>
+</body>
+</html>

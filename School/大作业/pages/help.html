@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帮助中心 - 智联未来</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/advanced.css">
+    <style>
+        .help-page {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0f2f1 50%, #b2dfdb 100%);
+            min-height: 80vh;
+        }
+        
+        .help-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .help-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .help-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #009688 0%, #4db6ac 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(0, 150, 136, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(0, 150, 136, 0.6));
+            }
+        }
+        
+        .help-search {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-box button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #009688 0%, #4db6ac 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box button:hover {
+            background: linear-gradient(135deg, #00796b 0%, #26a69a 100%);
+        }
+        
+        .help-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 150, 136, 0.2);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #009688;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .help-articles {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .help-articles h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .article-card {
+            padding: 1.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .article-card:hover {
+            border-color: #009688;
+            box-shadow: 0 5px 15px rgba(0, 150, 136, 0.1);
+        }
+        
+        .article-title {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .article-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #999;
+        }
+        
+        .article-tag {
+            padding: 0.2rem 0.6rem;
+            background: rgba(0, 150, 136, 0.1);
+            border-radius: 15px;
+            color: #009688;
+            font-size: 0.75rem;
+        }
+        
+        .troubleshooting-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .troubleshooting-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .troubleshooting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .troubleshooting-card {
+            padding: 1.5rem;
+            border-left: 4px solid #009688;
+            background: rgba(0, 150, 136, 0.05);
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .troubleshooting-title {
+            font-size: 1.1rem;
+            color: #009688;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .troubleshooting-steps {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .troubleshooting-steps li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .troubleshooting-steps li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: #009688;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .troubleshooting-steps {
+            counter-reset: step-counter;
+        }
+        
+        .contact-support {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(0, 150, 136, 0.1) 0%, rgba(77, 182, 172, 0.1) 100%);
+            border-radius: 15px;
+        }
+        
+        .contact-support h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 150, 136, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+        
+        .feedback-section {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .feedback-section p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feedback-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #009688 0%, #4db6ac 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .feedback-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 150, 136, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container nav-container-expanded">
+                <div class="logo">
+                    <a href="../index.html">智联未来</a>
+                </div>
+                <ul class="nav-menu many-items">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">解决方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cases.html" class="nav-link">案例展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">团队介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experience.html" class="nav-link">在线体验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">新闻动态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recommend.html" class="nav-link">智能推荐</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="help-page">
+            <div class="help-container">
+                <div class="help-header">
+                    <h1>帮助中心</h1>
+                    <p>我们随时为您提供帮助和支持</p>
+                </div>
+                
+                <div class="help-search">
+                    <div class="search-box">
+                        <input type="text" placeholder="搜索帮助内容...">
+                        <button>搜索</button>
+                    </div>
+                </div>
+                
+                <div class="help-categories">
+                    <div class="category-card">
+                        <div class="category-icon">🚀</div>
+                        <div class="category-title">快速入门</div>
+                        <div class="category-description">新用户指南和基础设置</div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">📱</div>
+                        <div class="category-title">产品使用</div>
+                        <div class="category-description">详细的产品使用说明</div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">🔧</div>
+                        <div class="category-title">故障排除</div>
+                        <div class="category-description">常见问题解决方案</div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-icon">💡</div>
+                        <div class="category-title">使用技巧</div>
+                        <div class="category-description">提升使用体验的小技巧</div>
+                    </div>
+                </div>
+                
+                <div class="help-articles">
+                    <h2>热门文章</h2>
+                    <div class="articles-grid">
+                        <div class="article-card">
+                            <div class="article-title">如何快速连接智能家居设备</div>
+                            <div class="article-description">详细介绍智联未来APP的设备连接流程，让您轻松上手智能家居。</div>
+                            <div class="article-meta">
+                                <span class="article-tag">快速入门</span>
+                                <span>5分钟阅读</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-card">
+                            <div class="article-title">智能设备常见故障排除</div>
+                            <div class="article-description">汇总智能设备使用过程中可能遇到的常见问题及解决方法。</div>
+                            <div class="article-meta">
+                                <span class="article-tag">故障排除</span>
+                                <span>8分钟阅读</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-card">
+                            <div class="article-title">智能家居场景设置指南</div>
+                            <div class="article-description">教您如何设置个性化的智能家居场景，让生活更加便捷。</div>
+                            <div class="article-meta">
+                                <span class="article-tag">使用技巧</span>
+                                <span>6分钟阅读</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-card">
+                            <div class="article-title">产品固件更新方法</div>
+                            <div class="article-description">介绍如何为智能产品更新固件，获得最新功能和性能优化。</div>
+                            <div class="article-meta">
+                                <span class="article-tag">产品使用</span>
+                                <span>4分钟阅读</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-card">
+                            <div class="article-title">智能设备省电技巧</div>
+                            <div class="article-description">分享智能设备的省电使用技巧，延长设备续航时间。</div>
+                            <div class="article-meta">
+                                <span class="article-tag">使用技巧</span>
+                                <span>5分钟阅读</span>
+                            </div>
+                        </div>
+                        
+                        <div class="article-card">
+                            <div class="article-title">多设备联动设置教程</div>
+                            <div class="article-description">教您如何设置多设备联动，实现真正的智能生活。</div>
+                            <div class="article-meta">
+                                <span class="article-tag">产品使用</span>
+                                <span>7分钟阅读</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="troubleshooting-section">
+                    <h2>故障排除指南</h2>
+                    <div class="troubleshooting-grid">
+                        <div class="troubleshooting-card">
+                            <div class="troubleshooting-title">设备无法连接</div>
+                            <ol class="troubleshooting-steps">
+                                <li>检查设备电源是否正常</li>
+                                <li>确认手机蓝牙已开启</li>
+                                <li>重启设备和APP</li>
+                                <li>检查网络连接状态</li>
+                                <li>联系技术支持</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="troubleshooting-card">
+                            <div class="troubleshooting-title">设备离线问题</div>
+                            <ol class="troubleshooting-steps">
+                                <li>检查WiFi网络连接</li>
+                                <li>确认路由器工作正常</li>
+                                <li>重置设备网络设置</li>
+                                <li>更新设备固件</li>
+                                <li>重新添加设备</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="troubleshooting-card">
+                            <div class="troubleshooting-title">APP功能异常</div>
+                            <ol class="troubleshooting-steps">
+                                <li>清除APP缓存</li>
+                                <li>更新APP到最新版本</li>
+                                <li>检查手机系统权限</li>
+                                <li>重新登录账号</li>
+                                <li>卸载重装APP</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-support">
+                    <h2>需要更多帮助？</h2>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong>电话支持</strong>
+                                <div>123-456-7899</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">💬</div>
+                            <div>
+                                <strong>在线客服</strong>
+                                <div>7×24小时服务</div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <strong>邮件支持</strong>
+                                <div>md123456@edu.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feedback-section">
+                        <p>对我们的帮助中心有建议？欢迎反馈您的意见</p>
+                        <button class="feedback-btn">提交反馈</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>智联未来</h3>
+                    <p>用科技重新定义生活，让智能融入每一个场景，打造更美好的未来。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="../images/微信.svg" alt="微信"></a>
+                        <a href="#"><img src="../images/微博.svg" alt="微博"></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>电话：123-456-7899</p>
+                    <p>邮箱：md123456@edu.com</p>
+                    <p>地址：西安明德理工学院旁边500米</p>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅资讯</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="请输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h4>快速服务</h4>
+                    <ul>
+                        <li><a href="support.html">技术支持</a></li>
+                        <li><a href="careers.html">招聘信息</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="help.html">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智联未来科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <span>↑</span>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/advanced.js"></script>
+</body>
+</html>

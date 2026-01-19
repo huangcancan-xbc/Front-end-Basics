@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>招聘信息 - 智联未来</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/advanced.css">
+    <style>
+        .careers-page {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e3f2fd 50%, #bbdefb 100%);
+            min-height: 80vh;
+        }
+        
+        .careers-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .careers-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .careers-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2196f3 0%, #00bcd4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(33, 150, 243, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(33, 150, 243, 0.6));
+            }
+        }
+        
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .job-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .job-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+        }
+        
+        .job-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-department {
+            color: #2196f3;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .job-info {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .job-info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .job-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-requirements {
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-requirements h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-requirements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .job-requirements li {
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            color: #666;
+        }
+        
+        .job-requirements li::before {
+            content: "•";
+            color: #2196f3;
+            position: absolute;
+            left: 0;
+        }
+        
+        .apply-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #2196f3 0%, #00bcd4 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+        }
+        
+        .benefits-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .benefits-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: rgba(33, 150, 243, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            background: rgba(33, 150, 243, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .benefit-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .culture-section {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(0, 188, 212, 0.1) 100%);
+            border-radius: 15px;
+        }
+        
+        .culture-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .culture-values {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .culture-value {
+            flex: 1;
+            min-width: 200px;
+            padding: 1.5rem;
+        }
+        
+        .culture-value h3 {
+            color: #2196f3;
+            margin-bottom: 0.5rem;
+        }
+        
+        .culture-value p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container nav-container-expanded">
+                <div class="logo">
+                    <a href="../index.html">智联未来</a>
+                </div>
+                <ul class="nav-menu many-items">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">解决方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cases.html" class="nav-link">案例展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">团队介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experience.html" class="nav-link">在线体验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">新闻动态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recommend.html" class="nav-link">智能推荐</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="careers-page">
+            <div class="careers-container">
+                <div class="careers-header">
+                    <h1>加入我们</h1>
+                    <p>与智联未来一起，用科技改变世界</p>
+                </div>
+                
+                <div class="jobs-grid">
+                    <div class="job-card">
+                        <h3 class="job-title">高级前端工程师</h3>
+                        <div class="job-department">技术研发部</div>
+                        <div class="job-info">
+                            <div class="job-info-item">
+                                <span>📍</span>
+                                <span>西安</span>
+                            </div>
+                            <div class="job-info-item">
+                                <span>💰</span>
+                                <span>15-25K</span>
+                            </div>
+                            <div class="job-info-item">
+                                <span>🎓</span>
+                                <span>本科及以上</span>
+                            </div>
+                        </div>
+                        <div class="job-description">
+                            负责公司产品的前端开发工作，参与产品需求分析和技术方案设计。
+                        </div>
+                        <div class="job-requirements">
+                            <h4>任职要求：</h4>
+                            <ul>
+                                <li>3年以上前端开发经验</li>
+                                <li>精通HTML、CSS、JavaScript</li>
+                                <li>熟悉React/Vue等主流框架</li>
+                                <li>良好的沟通能力和团队协作精神</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="apply-btn">立即申请</a>
+                    </div>
+                    
+                    <div class="job-card">
+                        <h3 class="job-title">产品经理</h3>
+                        <div class="job-department">产品部</div>
+                        <div class="job-info">
+                            <div class="job-info-item">
+                                <span>📍</span>
+                                <span>西安</span>
+                            </div>
+                            <div class="job-info-item">
+                                <span>💰</span>
+                                <span>20-30K</span>
+                            </div>
+                            <div class="job-info-item">
+                                <span>🎓</span>
+                                <span>本科及以上</span>
+                            </div>
+                        </div>
+                        <div class="job-description">
+                            负责智能产品线的规划设计和项目管理，推动产品持续创新。
+                        </div>
+                        <div class="job-requirements">
+                            <h4>任职要求：</h4>
+                            <ul>
+                                <li>5年以上产品经理经验</li>
+                                <li>熟悉智能硬件产品开发流程</li>
+                                <li>优秀的沟通协调能力</li>
+                                <li>具备用户思维和商业敏感度</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="apply-btn">立即申请</a>
+                    </div>
+                    
+                    <div class="job-card">
+                        <h3 class="job-title">UI/UX设计师</h3>
+                        <div class="job-department">设计部</div>
+                        <div class="job-info">
+                            <div class="job-info-item">
+                                <span>📍</span>
+                                <span>西安</span>
+                            </div>
+                            <div class="job-info-item">
+                                <span>💰</span>
+                                <span>12-20K</span>
+                            </div>
+                            <div class="job-info-item">
+                                <span>🎓</span>
+                                <span>本科及以上</span>
+                            </div>
+                        </div>
+                        <div class="job-description">
+                            负责公司产品的界面设计和用户体验优化，打造极致的产品体验。
+                        </div>
+                        <div class="job-requirements">
+                            <h4>任职要求：</h4>
+                            <ul>
+                                <li>3年以上UI/UX设计经验</li>
+                                <li>精通Figma、Sketch等设计工具</li>
+                                <li>熟悉移动端和Web端设计规范</li>
+                                <li>具备良好的审美和创新能力</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="apply-btn">立即申请</a>
+                    </div>
+                    
+                    <div class="job-card">
+                        <h3 class="job-title">算法工程师</h3>
+                        <div class="job-department">AI研发部</div>
+                        <div class="job-info">
+                            <div class="job-info-item">
+                                <span>📍</span>
+                                <span>西安</span>
+                            </div>
+                            <div class="job-info-item">
+                                <span>💰</span>
+                                <span>25-35K</span>
+                            </div>
+                            <div class="job-info-item">
+                                <span>🎓</span>
+                                <span>硕士及以上</span>
+                            </div>
+                        </div>
+                        <div class="job-description">
+                            负责智能产品核心算法的研发和优化，推动技术创新。
+                        </div>
+                        <div class="job-requirements">
+                            <h4>任职要求：</h4>
+                            <ul>
+                                <li>计算机/数学相关专业硕士及以上</li>
+                                <li>熟悉机器学习和深度学习算法</li>
+                                <li>熟练使用Python、TensorFlow等工具</li>
+                                <li>有相关项目经验者优先</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="apply-btn">立即申请</a>
+                    </div>
+                </div>
+                
+                <div class="benefits-section">
+                    <h2>福利待遇</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💰</div>
+                            <div class="benefit-title">有竞争力的薪酬</div>
+                            <div class="benefit-description">行业领先的薪资水平和年终奖金</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🏥</div>
+                            <div class="benefit-title">完善的福利保障</div>
+                            <div class="benefit-description">五险一金、补充医疗保险、年度体检</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📚</div>
+                            <div class="benefit-title">学习发展机会</div>
+                            <div class="benefit-description">培训基金、技术分享、外部大会参与</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🏖️</div>
+                            <div class="benefit-title">丰富的假期</div>
+                            <div class="benefit-description">带薪年假、弹性工作制、团建活动</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🍔</div>
+                            <div class="benefit-title">舒适的办公环境</div>
+                            <div class="benefit-description">免费零食饮料、健身房、休息区</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🚀</div>
+                            <div class="benefit-title">股权激励</div>
+                            <div class="benefit-description">核心员工期权激励计划</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="culture-section">
+                    <h2>企业文化</h2>
+                    <div class="culture-values">
+                        <div class="culture-value">
+                            <h3>创新</h3>
+                            <p>鼓励创新思维，支持新技术探索</p>
+                        </div>
+                        <div class="culture-value">
+                            <h3>协作</h3>
+                            <p>团队合作，共同成长</p>
+                        </div>
+                        <div class="culture-value">
+                            <h3>责任</h3>
+                            <p>对产品负责，对用户负责</p>
+                        </div>
+                        <div class="culture-value">
+                            <h3>卓越</h3>
+                            <p>追求卓越，永不止步</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>智联未来</h3>
+                    <p>用科技重新定义生活，让智能融入每一个场景，打造更美好的未来。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="../images/微信.svg" alt="微信"></a>
+                        <a href="#"><img src="../images/微博.svg" alt="微博"></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>电话：123-456-7899</p>
+                    <p>邮箱：md123456@edu.com</p>
+                    <p>地址：西安明德理工学院旁边500米</p>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅资讯</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="请输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h4>快速服务</h4>
+                    <ul>
+                        <li><a href="support.html">技术支持</a></li>
+                        <li><a href="careers.html">招聘信息</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="help.html">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智联未来科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <span>↑</span>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/advanced.js"></script>
+</body>
+</html>

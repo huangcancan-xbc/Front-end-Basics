@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数码电子 - 腾飞优品</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/digital.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- LOGO -->
+                <div class="logo">
+                    <img src="img/腾飞优品logo.png" alt="腾飞优品">
+                    <span>腾飞优品</span>
+                </div>
+                
+                <!-- 主导航 -->
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="digital.html" class="active">数码电子</a></li>
+                        <li><a href="clothes.html">服装鞋帽</a></li>
+                        <li><a href="sports.html">运动户外</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 购物车 -->
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <img src="img/购物车.png" alt="购物车">
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">首页</a>
+            <span class="separator">></span>
+            <span class="current">数码电子</span>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="category-main">
+        <div class="container">
+            <!-- 分类头部 -->
+            <div class="category-header">
+                <h1>数码电子</h1>
+                <p class="category-desc">科技改变生活，精选数码产品，引领智能时代</p>
+            </div>
+
+            <!-- 筛选和排序 -->
+            <div class="filter-sort-bar">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>品牌：</label>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-brand="all">全部</button>
+                            <button class="filter-btn" data-brand="Apple">Apple</button>
+                            <button class="filter-btn" data-brand="华为">华为</button>
+                            <button class="filter-btn" data-brand="小米">小米</button>
+                            <button class="filter-btn" data-brand="Samsung">Samsung</button>
+                            <button class="filter-btn" data-brand="Sony">Sony</button>
+                            <button class="filter-btn" data-brand="Dell">Dell</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>分类：</label>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-category="all">全部</button>
+                            <button class="filter-btn" data-category="phone">手机</button>
+                            <button class="filter-btn" data-category="laptop">笔记本</button>
+                            <button class="filter-btn" data-category="tablet">平板电脑</button>
+                            <button class="filter-btn" data-category="headphone">耳机音响</button>
+                            <button class="filter-btn" data-category="camera">摄影设备</button>
+                            <button class="filter-btn" data-category="accessories">数码配件</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>价格：</label>
+                        <div class="filter-options">
+                            <button class="filter-btn active" data-price="all">全部</button>
+                            <button class="filter-btn" data-price="0-1000">1000元以下</button>
+                            <button class="filter-btn" data-price="1000-3000">1000-3000元</button>
+                            <button class="filter-btn" data-price="3000-8000">3000-8000元</button>
+                            <button class="filter-btn" data-price="8000+">8000元以上</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sort-options">
+                    <label>排序：</label>
+                    <select id="sortSelect">
+                        <option value="default">默认排序</option>
+                        <option value="price-asc">价格从低到高</option>
+                        <option value="price-desc">价格从高到低</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 商品列表 -->
+            <div class="products-section">
+                <div class="products-header">
+                    <span class="products-count">共 <span id="productsCount">0</span> 件商品</span>
+                </div>
+                
+                <div class="products-grid" id="productsGrid">
+                    <!-- 商品将通过JavaScript动态加载 -->
+                </div>
+                
+                <!-- 加载更多 -->
+                <div class="load-more">
+                    <button class="btn btn-primary" id="loadMoreBtn">加载更多</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>品牌介绍</h3>
+                    <p>腾飞优品致力于为用户提供优质的购物体验，精选全球好物，品质保证，服务至上。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#">微信公众号</a>
+                        <a href="#">新浪微博</a>
+                        <a href="#">抖音号</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 腾飞优品. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/digital.js"></script>
+</body>
+</html>

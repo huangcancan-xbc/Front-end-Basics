@@ -1,0 +1,329 @@
+/* 联系我们页面样式 */
+
+/* 页面标题样式 - 整合到背景中 */
+.page-header {
+    background: transparent;
+    color: white;
+    padding: 80px 0 40px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+    }
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* 联系信息样式 */
+.contact-info {
+    padding: 50px 0;
+    position: relative;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+.info-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    border-color: rgba(0, 255, 136, 0.6);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.info-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f0f0f;
+    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.3);
+}
+
+.info-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.info-item h3 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.info-item p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* 整页背景样式 */
+body.contact-page {
+    background-image: url('../images/科技园区.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+}
+
+body.contact-page::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(1px);
+    z-index: -1;
+}
+
+/* 联系表单和地图样式 - 优化版本 */
+.contact-main {
+    padding: 0;
+    position: relative;
+}
+
+.contact-background {
+    position: relative;
+    min-height: 800px;
+}
+
+.contact-unified {
+    position: relative;
+    z-index: 2;
+    padding: 100px 0;
+    text-align: center;
+    color: white;
+}
+
+.contact-unified h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.contact-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.contact-form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+    align-items: start;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(0, 255, 136, 0.2);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: #333;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #00ff88;
+    box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+    background: white;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-location {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+}
+
+.location-info h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.location-info p {
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-outline {
+    padding: 12px 20px;
+    background: transparent;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-outline:hover {
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    color: #0f0f0f;
+    transform: translateY(-2px);
+    border-color: transparent;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-form-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form,
+    .contact-location {
+        padding: 2rem;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .page-header {
+        padding: 100px 0 60px;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .contact-unified {
+        padding: 60px 0;
+    }
+
+    .contact-unified h2 {
+        font-size: 2.5rem;
+    }
+
+    .contact-form,
+    .contact-location {
+        padding: 1.5rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .info-item {
+        padding: 2rem 1.5rem;
+    }
+}
+

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻动态 - 智联未来</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/news.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container nav-container-expanded">
+                <div class="logo">
+                    <a href="../index.html">智联未来</a>
+                </div>
+                <ul class="nav-menu many-items">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">解决方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cases.html" class="nav-link">案例展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">团队介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experience.html" class="nav-link">在线体验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link active">新闻动态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recommend.html" class="nav-link">智能推荐</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 页面标题 -->
+        <section class="page-header">
+            <div class="container">
+                <h1>新闻动态</h1>
+                <p>了解最新行业资讯和公司动态</p>
+            </div>
+        </section>
+
+        <!-- 新闻分类 -->
+        <section class="news-categories">
+            <div class="container">
+                <div class="category-buttons">
+                    <button class="category-btn active" data-category="all">全部</button>
+                    <button class="category-btn" data-category="company">公司动态</button>
+                    <button class="category-btn" data-category="industry">行业资讯</button>
+                    <button class="category-btn" data-category="technology">技术前沿</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 新闻列表 -->
+        <section class="news-list">
+            <div class="container">
+                <div class="news-container">
+                    <!-- 公司动态 -->
+                    <article class="news-item" data-category="company">
+                        <div class="news-image">
+                            <img src="../images/公司动态.jpg" alt="公司动态" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="news-content">
+                            <h2>智联未来荣获2024年度最佳智能科技企业称号</h2>
+                        </div>
+                        <div class="news-overlay">
+                            <div class="news-overlay-content">
+                                <h2>智联未来荣获2024年度最佳智能科技企业称号</h2>
+                                <p>在刚刚结束的中国智能科技年度盛典上，智联未来凭借卓越的技术实力和优质的产品服务，荣获"2024年度最佳智能科技企业"称号。</p>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="news-item" data-category="company">
+                        <div class="news-image">
+                            <img src="../images/团队扩张.png" alt="团队扩张" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="news-content">
+                            <h2>智联未来团队规模突破100人</h2>
+                        </div>
+                        <div class="news-overlay">
+                            <div class="news-overlay-content">
+                                <h2>智联未来团队规模突破100人</h2>
+                                <p>随着业务的快速发展，智联未来团队规模在本月正式突破100人，新增多位行业资深工程师和技术专家。</p>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 行业资讯 -->
+                    <article class="news-item" data-category="industry">
+                        <div class="news-image">
+                            <img src="../images/行业趋势.png" alt="行业趋势" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="news-content">
+                            <h2>2025年智能科技行业发展趋势报告</h2>
+                        </div>
+                        <div class="news-overlay">
+                            <div class="news-overlay-content">
+                                <h2>2025年智能科技行业发展趋势报告</h2>
+                                <p>根据最新发布的行业报告，2025年智能科技行业将呈现AI深度融合、万物互联、个性化定制的发展趋势。</p>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 技术前沿 -->
+                    <article class="news-item" data-category="technology">
+                        <div class="news-image">
+                            <img src="../images/技术前沿.png" alt="技术前沿" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="news-content">
+                            <h2>AI技术在智能家居领域的应用与展望</h2>
+                        </div>
+                        <div class="news-overlay">
+                            <div class="news-overlay-content">
+                                <h2>AI技术在智能家居领域的应用与展望</h2>
+                                <p>人工智能技术正在深刻改变智能家居行业，从语音识别到行为预测，AI为用户带来了更智能的生活体验。</p>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>智联未来</h3>
+                    <p>专注于为企业提供高品质的设计服务，助力品牌成长。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="../images/微信.svg" alt="微信"></a>
+                        <a href="#"><img src="../images/微博.svg" alt="微博"></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>电话：123-456-7899</p>
+                    <p>邮箱：md123456@edu.com</p>
+                    <p>地址：西安明德理工学院旁边500米</p>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅资讯</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="请输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h4>快速服务</h4>
+                    <ul>
+                        <li><a href="support.html">技术支持</a></li>
+                        <li><a href="careers.html">招聘信息</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="help.html">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智联未来科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/news.js"></script>
+</body>
+</html>

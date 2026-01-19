@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+    <style type="text/css">
+        body {
+            font-size: 12px;
+        }
+        
+        #div0 {
+            width: 800px;
+            height: 380px;
+            border: 5px solid #F3F3F2;
+            margin: 30px auto;
+            padding: 10px;
+        }
+        
+        #div1 {
+            background-color: #F2F9FD;
+            color: #0000FF;
+            width: 100%;
+            height: 30px;
+        }
+        
+        #div2 {
+            background-color: #F2F9FD;
+            color: #0000FF;
+            width: 100%;
+            height: 340px;
+            margin-top: 3px;
+        }
+        
+        .td1 {
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 22px;
+            color: #339966;
+            width: 100px;
+            text-align: center;
+        }
+        
+        .bt1 {
+            font-size: 26px;
+            font-weight: bold;
+            font-family: 黑体;
+            color: #0033CC;
+            width: 500px;
+            text-align: left;
+        }
+        
+        .bt2 {
+            font-size: 12px;
+            font-weight: bold;
+            font-family: 黑体;
+            color: #0033CC;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="div0">
+        <div id="div1">
+            <table>
+                <tr>
+                    <td class="bt1">留言板</td>
+                    <td class="bt2">科技工作者建言</td>
+                </tr>
+            </table>
+        </div>
+        <div id="div2">
+            <form name="form1" method="post" action="">
+                <table>
+                    <tr>
+                        <td style="color: red;">发表留言</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td class="td1">姓名：</td>
+                        <td><input type="text" name="name" size="20"></td>
+                    </tr>
+                    <tr>
+                        <td class="td1">电子邮件：</td>
+                        <td><input type="text" name="email" size="30"></td>
+                    </tr>
+                    <tr>
+                        <td class="td1">分类：</td>
+                        <td>
+                            <input type="radio" name="bm" value="public">公开
+                            <input type="radio" name="bm" value="private">保密
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1">留言：</td>
+                        <td>
+                            <select name="lx">
+                                <option value="0" selected></option>
+                                <option value="1">投诉</option>
+                                <option value="2">咨询</option>
+                                <option value="3">建议</option>
+                                <option value="4">反馈</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <textarea name="message" rows="6" cols="50">在此留言</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="提交">
+                            <input type="reset" value="清空">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            注：如果您的留言不便公开，请选择"保密"选项，提交后可凭系统反馈给您的留言编号、查询密码和您的姓名查询回复。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            ·请遵守国家有关法律、法规，尊重网上道德，承担一切因您的行为而直接或间接引起的法律责任。
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            ·本网站拥有管理笔名和留言的一切权利。
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

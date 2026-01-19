@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合作伙伴 - 智联未来</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/advanced.css">
+    <style>
+        .partners-page {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #f3e5f5 50%, #e1bee7 100%);
+            min-height: 80vh;
+        }
+        
+        .partners-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .partners-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .partners-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #9c27b0 0%, #673ab7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(156, 39, 176, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(156, 39, 176, 0.6));
+            }
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .partner-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(156, 39, 176, 0.2);
+        }
+        
+        .partner-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #9c27b0 0%, #673ab7 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .partner-name {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .partner-type {
+            color: #9c27b0;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .partner-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cooperation-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .cooperation-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .cooperation-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .cooperation-mode {
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: rgba(156, 39, 176, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .cooperation-mode:hover {
+            background: rgba(156, 39, 176, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .cooperation-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .cooperation-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .cooperation-description {
+            color: #666;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .cases-section {
+            margin-bottom: 3rem;
+        }
+        
+        .cases-section h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .case-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(156, 39, 176, 0.2);
+        }
+        
+        .case-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .case-partners {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .case-partner {
+            padding: 0.3rem 0.8rem;
+            background: rgba(156, 39, 176, 0.1);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #9c27b0;
+        }
+        
+        .case-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .case-results {
+            padding: 1rem;
+            background: rgba(156, 39, 176, 0.05);
+            border-radius: 10px;
+        }
+        
+        .case-results h4 {
+            color: #9c27b0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-results ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .case-results li {
+            padding: 0.2rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .case-results li::before {
+            content: "✓";
+            color: #9c27b0;
+            position: absolute;
+            left: 0;
+        }
+        
+        .application-section {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(103, 58, 183, 0.1) 100%);
+            border-radius: 15px;
+        }
+        
+        .application-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .application-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid rgba(156, 39, 176, 0.2);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #9c27b0;
+            box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.1);
+        }
+        
+        .submit-btn {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #9c27b0 0%, #673ab7 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(156, 39, 176, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container nav-container-expanded">
+                <div class="logo">
+                    <a href="../index.html">智联未来</a>
+                </div>
+                <ul class="nav-menu many-items">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">解决方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cases.html" class="nav-link">案例展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">团队介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experience.html" class="nav-link">在线体验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">新闻动态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recommend.html" class="nav-link">智能推荐</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="partners-page">
+            <div class="partners-container">
+                <div class="partners-header">
+                    <h1>合作伙伴</h1>
+                    <p>携手共创智能未来</p>
+                </div>
+                
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-logo">科</div>
+                        <h3 class="partner-name">科技巨头</h3>
+                        <div class="partner-type">技术合作伙伴</div>
+                        <div class="partner-description">
+                            全球领先的科技公司，在人工智能和云计算领域深度合作，共同推动智能技术创新。
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-logo">制</div>
+                        <h3 class="partner-name">制造企业</h3>
+                        <div class="partner-type">生产合作伙伴</div>
+                        <div class="partner-description">
+                            知名智能制造企业，提供高质量的生产制造支持，确保产品品质和交付能力。
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-logo">渠</div>
+                        <h3 class="partner-name">渠道商</h3>
+                        <div class="partner-type">销售合作伙伴</div>
+                        <div class="partner-description">
+                            全国性销售渠道网络，覆盖线上线下全渠道，助力产品快速触达目标用户。
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-logo">研</div>
+                        <h3 class="partner-name">研究院</h3>
+                        <div class="partner-type">研发合作伙伴</div>
+                        <div class="partner-description">
+                            顶尖科研机构，在前沿技术研究和产业化方面提供强大支持。
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-logo">投</div>
+                        <h3 class="partner-name">投资机构</h3>
+                        <div class="partner-type">投资合作伙伴</div>
+                        <div class="partner-description">
+                            知名投资机构，为公司发展提供资金支持和战略指导。
+                        </div>
+                    </div>
+                    
+                    <div class="partner-card">
+                        <div class="partner-logo">服</div>
+                        <h3 class="partner-name">服务商</h3>
+                        <div class="partner-type">服务合作伙伴</div>
+                        <div class="partner-description">
+                            专业服务提供商，在安装、维护、培训等方面提供全方位支持。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cooperation-section">
+                    <h2>合作模式</h2>
+                    <div class="cooperation-modes">
+                        <div class="cooperation-mode">
+                            <div class="cooperation-icon">🤝</div>
+                            <div class="cooperation-title">技术合作</div>
+                            <div class="cooperation-description">联合研发、技术共享、专利授权</div>
+                        </div>
+                        <div class="cooperation-mode">
+                            <div class="cooperation-icon">🏭</div>
+                            <div class="cooperation-title">生产合作</div>
+                            <div class="cooperation-description">OEM/ODM、供应链整合</div>
+                        </div>
+                        <div class="cooperation-mode">
+                            <div class="cooperation-icon">📊</div>
+                            <div class="cooperation-title">销售合作</div>
+                            <div class="cooperation-description">分销代理、联合营销</div>
+                        </div>
+                        <div class="cooperation-mode">
+                            <div class="cooperation-icon">💡</div>
+                            <div class="cooperation-title">创新合作</div>
+                            <div class="cooperation-description">孵化投资、创业加速</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cases-section">
+                    <h2>合作案例</h2>
+                    <div class="cases-grid">
+                        <div class="case-card">
+                            <h3 class="case-title">智慧城市项目</h3>
+                            <div class="case-partners">
+                                <span class="case-partner">科技巨头</span>
+                                <span class="case-partner">制造企业</span>
+                            </div>
+                            <div class="case-description">
+                                与多家合作伙伴共同打造智慧城市解决方案，涵盖智能交通、智能安防、智能环保等多个领域。
+                            </div>
+                            <div class="case-results">
+                                <h4>合作成果</h4>
+                                <ul>
+                                    <li>覆盖10个城市</li>
+                                    <li>服务超过100万用户</li>
+                                    <li>降低运营成本30%</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="case-card">
+                            <h3 class="case-title">智能家居生态</h3>
+                            <div class="case-partners">
+                                <span class="case-partner">科技巨头</span>
+                                <span class="case-partner">渠道商</span>
+                            </div>
+                            <div class="case-description">
+                                构建完整的智能家居生态系统，整合硬件、软件、服务平台，提供一体化解决方案。
+                            </div>
+                            <div class="case-results">
+                                <h4>合作成果</h4>
+                                <ul>
+                                    <li>接入设备超过50种</li>
+                                    <li>用户满意度95%</li>
+                                    <li>市场份额领先</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="application-section">
+                    <h2>合作申请</h2>
+                    <div class="application-form">
+                        <div class="form-group">
+                            <label for="company-name">公司名称</label>
+                            <input type="text" id="company-name" placeholder="请输入公司名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-person">联系人</label>
+                            <input type="text" id="contact-person" placeholder="请输入联系人姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">邮箱</label>
+                            <input type="email" id="contact-email" placeholder="请输入邮箱地址">
+                        </div>
+                        <div class="form-group">
+                            <label for="cooperation-type">合作类型</label>
+                            <select id="cooperation-type">
+                                <option value="">请选择合作类型</option>
+                                <option value="tech">技术合作</option>
+                                <option value="production">生产合作</option>
+                                <option value="sales">销售合作</option>
+                                <option value="innovation">创新合作</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">合作意向</label>
+                            <textarea id="message" rows="4" placeholder="请描述您的合作意向"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">提交申请</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>智联未来</h3>
+                    <p>用科技重新定义生活，让智能融入每一个场景，打造更美好的未来。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="../images/微信.svg" alt="微信"></a>
+                        <a href="#"><img src="../images/微博.svg" alt="微博"></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>电话：123-456-7899</p>
+                    <p>邮箱：md123456@edu.com</p>
+                    <p>地址：西安明德理工学院旁边500米</p>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅资讯</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="请输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h4>快速服务</h4>
+                    <ul>
+                        <li><a href="support.html">技术支持</a></li>
+                        <li><a href="careers.html">招聘信息</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="help.html">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智联未来科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <span>↑</span>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/advanced.js"></script>
+</body>
+</html>

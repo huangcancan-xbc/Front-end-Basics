@@ -1,0 +1,106 @@
+﻿/* 导航栏优化样式 */
+
+/* 全局毛玻璃导航栏效果 */
+.header {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.navbar {
+    background: transparent;
+}
+
+/* 导航栏滚动时的效果 */
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* 导航链接悬停效果 */
+.nav-link:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* 桌面端导航栏优化 */
+@media screen and (min-width: 769px) {
+    .nav-menu {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+    
+    .nav-link {
+        font-size: 0.95rem;
+        white-space: nowrap;
+    }
+    
+    /* 当导航项较多时减小间距 */
+    .nav-menu.many-items {
+        gap: 1rem;
+    }
+    
+    .nav-menu.many-items .nav-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* 平板设备上的导航栏优化 */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        padding: 1rem 0;
+    }
+    
+    .nav-item {
+        margin: 0.5rem 0;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+    }
+}
+
+/* 手机设备上的导航栏优化 */
+@media screen and (max-width: 480px) {
+    .nav-menu {
+        padding: 0.5rem 0;
+    }
+    
+    .nav-item {
+        margin: 0.3rem 0;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+        padding: 0.3rem 0;
+    }
+}
+
+/* 导航栏滚动支持（当菜单项过多时） */
+.nav-menu-scrollable {
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.nav-menu-scrollable::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+
+.nav-menu-scrollable .nav-menu {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 0 1rem;
+}
+
+/* 响应式导航容器 */
+@media screen and (min-width: 769px) {
+    .nav-container-expanded {
+        max-width: 1400px;
+    }
+}

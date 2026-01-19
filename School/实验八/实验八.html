@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验八 JavaScript事件分析</title>
+    <style type="text/css">
+        form {
+            text-align: center;
+        }
+        
+        div {
+            background: #00CC99;
+            width: 500px;
+            height: 280px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        h3 {
+            padding-top: 10px;
+        }
+        
+        img {
+            height: 150px;
+            border-radius: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+        function $(id) {
+            return document.getElementById(id);
+        }
+        
+        function mover() {
+            $("mybody").style.background = "#99CC66";
+            $("image").src = "image/image22.jpg";
+            $("mtext").value = "鼠标悬停状态";
+        }
+        
+        function mout() {
+            $("mybody").style.background = "#00CC99";
+            $("image").src = "image/image21.jpg";
+            $("mtext").value = "鼠标移出状态";
+        }
+        
+        function mdown() {
+            $("mtext").value = "鼠标按下状态";
+        }
+        
+        function mclick() {
+            $("mybody").style.background = "#FF6666";
+            $("image").src = "image/image23.jpg";
+            $("mtext").value = "鼠标单击状态";
+        }
+        
+        function mdclick() {
+            $("mybody").style.background = "#6666FF";
+            $("image").src = "image/image24.jpg";
+            $("mtext").value = "鼠标双击状态";
+        }
+    </script>
+</head>
+<body>
+    <div id="mybody" onmouseover="mover()" onmouseout="mout()" onclick="mclick();" onmousedown="mdown()" ondblclick="mdclick();">
+        <h3 align="center">鼠标动作捕获与响应</h3>
+        <hr color="white" size="1">
+        <form name="form1" method="post" action="">
+            <input type="text" name="" id="mtext">
+        </form>
+        <img src="image/image21.jpg" id="image" title="图区">
+    </div>
+</body>
+</html>

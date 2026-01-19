@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Web前端开发技术课程网站</title>
+	<link type="text/css" rel="stylesheet" href="link-5.css"/>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		#container {
+			margin: 0 auto;
+			width: 100%;
+		}
+		
+		a span {
+			font-size: 22px;
+			padding: 0 5px;
+		}
+		
+		ul a:link, ul a:visited, ul a:active {
+			color: white;
+			text-decoration: none;
+		}
+		
+		.main {
+			width: 1200px;
+			height: 410px;
+			padding: 20px auto;
+			margin: 0 auto;
+			text-align: center;
+		}
+		
+		#title {
+			width: 100%;
+			height: 60px;
+			text-align: center;
+		}
+		
+		#title h1 {
+			color: #8B0000;
+			font-family: 黑体;
+			font-size: 28px;
+			padding-top: 16px;
+		}
+		
+		#title h1 a:visited, #title h1 a:link, #title h1 a:active {
+			color: #8B0000;
+			text-decoration: none;
+		}
+		
+		#title h1 a:hover {
+			color: #8B0000;
+			text-decoration: underline;
+		}
+		
+		#title p {
+			color: red;
+			font-size: 18px;
+			padding-top: 10px;
+		}
+		
+		#left, #right {
+			display: inline-block;
+			width: 560px;
+			height: 350px;
+			float: left;
+			text-align: center;
+			padding: 10px;
+		}
+		
+		#left img {
+			width: 240px;
+			margin: 10px;
+			vertical-align: top;
+		}
+		
+		#right ul li a {
+			text-decoration: none;
+			color: black;
+			font-size: 22px;
+			padding: 5px;
+			float: left;
+			width: 150px;
+		}
+		
+		#right ul li a:hover {
+			background-color: #F1F2F3;
+		}
+		
+		#right ul {
+			text-align: left;
+			padding-left: 50px;
+			list-style-type: none;
+		}
+		
+		h3 {
+			clear: both;
+			height: 60px;
+			font-size: 28px;
+			padding-top: 15px;
+			color: red;
+		}
+		
+		.red {
+			color: red;
+			font-size: 24px;
+		}
+		
+		#source {
+			display: inline-block;
+			text-align: center;
+		}
+		
+		#source li {
+			background-color: #006E38;
+			display: inline-block;
+		}
+		
+		#footer {
+			width: 100%;
+			margin: 0 auto;
+			clear: both;
+			text-align: center;
+			font-size: 20px;
+			line-height: 40px;
+		}
+	</style>
+	<script type="text/javascript">
+		function changeHeight() {
+			$("header").style.height = '455px';
+		}
+		
+		function returnHeight() {
+			$("header").style.height = '378px';
+		}
+		
+		function $(id) {
+			return document.getElementById(id);
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<div class="bd-link">
+				<img src="img/fanya-logo.jpg" class="bd-link1"/>
+				<img src="img/xueying-logo.jpg" class="bd-link2"/>
+			</div>
+			<div id="nav">
+				<div class="navmenu">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li onmouseover="changeHeight()" onmouseout="returnHeight()">
+							<a href="#">HTML基础<span class="rotate">♤</span></a>
+							<div class="submenu">
+								<ul>
+									<li><a href="">文本、段落与列表</a></li>
+									<li><a href="">超链接与浮动框架</a></li>
+									<li><a href="">图像与多媒体文件</a></li>
+									<li><a href="">表格与表单</a></li>
+								</ul>
+							</div>
+						</li>
+						<li onmouseover="changeHeight()" onmouseout="returnHeight()">
+							<a href="#">CSS<span class="rotate">♤</span></a>
+							<div class="submenu">
+								<ul>
+									<li><a href="">CSS基础语法</a></li>
+									<li><a href="">CSS选择器</a></li>
+									<li><a href="">CSS盒模型</a></li>
+									<li><a href="">CSS浮动定位</a></li>
+								</ul>
+							</div>
+						</li>
+						<li onmouseover="changeHeight()" onmouseout="returnHeight()">
+							<a href="#">JavaScript<span class="rotate">♤</span></a>
+							<div class="submenu">
+								<ul>
+									<li><a href="">JavaScript基础</a></li>
+									<li><a href="">JavaScript对象</a></li>
+									<li><a href="">DOM操作</a></li>
+									<li><a href="">事件处理</a></li>
+								</ul>
+							</div>
+						</li>
+						<li onmouseover="changeHeight()" onmouseout="returnHeight()">
+							<a href="#">HTML5&CSS3基础<span class="rotate">♤</span></a>
+							<div class="submenu">
+								<ul>
+									<li><a href="">HTML5新特性</a></li>
+									<li><a href="">CSS3新特性</a></li>
+									<li><a href="">响应式布局</a></li>
+									<li><a href="">移动端开发</a></li>
+								</ul>
+							</div>
+						</li>
+						<li onmouseover="changeHeight()" onmouseout="returnHeight()">
+							<a href="#">HTML5高级应用<span class="rotate">♤</span></a>
+							<div class="submenu">
+								<ul>
+									<li><a href="">Canvas绘图</a></li>
+									<li><a href="">SVG图形</a></li>
+									<li><a href="">音视频处理</a></li>
+									<li><a href="">本地存储</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="main">
+			<div id="title">
+				<h1><a href="#">Web前端开发技术</a></h1>
+				<p>《Web前端开发技术》教材获中国大学出版社图书奖优秀教材奖</p>
+			</div>
+			<div id="left">
+				<img src="img/book3.jpg"/>
+				<img src="img/book3.jpg"/>
+			</div>
+			<div id="right">
+				<h3>网络教学平台</h3>
+				<ul>
+					<li><a href="#">❤️ 泛雅平台</a></li>
+					<li><a href="#">❤️ 学银在线</a></li>
+					<li><a href="#">❤️ 文景课堂</a></li>
+				</ul>
+				<h3>课程资源</h3>
+				<ul>
+					<li><a href="#">✸ 新形态教材</a></li>
+					<li><a href="#">✸ 教学大纲</a></li>
+					<li><a href="#">✸ 教学PPT</a></li>
+					<li><a href="#">✸ 教学视频</a></li>
+					<li><a href="#">✸ 实训视频</a></li>
+					<li><a href="#">✸ 习题与答案</a></li>
+					<li><a href="#">✸ 试卷库</a></li>
+					<li><a href="#">✸ 习题作业库</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="footer">
+			<hr/>
+			<p>Web前端开发技术联盟 , Copyright ©2020-2025 版权所有。</p>
+		</div>
+	</div>
+</body>
+</html>

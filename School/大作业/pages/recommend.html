@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能推荐 - 智联未来</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/advanced.css">
+    <style>
+        .recommend-page {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e8 50%, #dcedc8 100%);
+            min-height: 80vh;
+            margin-top: 0;
+        }
+        
+        .recommend-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .recommend-header {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+        }
+        
+        .recommend-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+            }
+        }
+        
+        .recommend-header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        
+        .quiz-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .quiz-step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .quiz-step.active {
+            display: block;
+        }
+        
+        .quiz-step h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .quiz-option {
+            padding: 2rem;
+            background: #f8f9fa;
+            border: 3px solid transparent;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .quiz-option:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+            border-color: #00ff88;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+        }
+        
+        .quiz-option.selected {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            color: #0f0f0f;
+            border-color: #00ff88;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0, 255, 136, 0.4);
+            animation: selectPulse 0.6s ease;
+        }
+        
+        @keyframes selectPulse {
+            0% {
+                transform: translateY(-3px) scale(1.05);
+            }
+            50% {
+                transform: translateY(-3px) scale(1.08);
+            }
+            100% {
+                transform: translateY(-3px) scale(1.05);
+            }
+        }
+        
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .btn-quiz {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-prev {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        .btn-prev:hover {
+            background: #dee2e6;
+        }
+        
+        .btn-next {
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            color: #0f0f0f;
+        }
+        
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+        
+        .quiz-result {
+            display: none;
+            text-align: center;
+        }
+        
+        .quiz-result.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .result-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .result-description {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .recommended-products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .recommended-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .recommended-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .recommended-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 255, 136, 0.15);
+            border-color: rgba(0, 255, 136, 0.2);
+        }
+        
+        .recommended-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .recommended-item-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 10px rgba(0, 255, 136, 0.3));
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+        
+        .recommended-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .recommended-item p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .product-tags {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #00ff88;
+            font-weight: 500;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: #e9ecef;
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 100%;
+            background: #00ff88;
+            border-radius: 3px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scaleY(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scaleY(1.2);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container nav-container-expanded">
+                <div class="logo">
+                    <a href="../index.html">智联未来</a>
+                </div>
+                <ul class="nav-menu many-items">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">解决方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cases.html" class="nav-link">案例展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">团队介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experience.html" class="nav-link">在线体验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">新闻动态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recommend.html" class="nav-link active">智能推荐</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="recommend-page">
+            <div class="recommend-container">
+                <div class="recommend-header">
+                    <h1>智能推荐系统</h1>
+                    <p>回答几个简单问题，我们将为您推荐最适合的智能产品组合</p>
+                </div>
+                
+                <div class="quiz-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    
+                    <!-- 问题1 -->
+                    <div class="quiz-step active" data-step="1">
+                        <h2>您的主要需求是？</h2>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-value="home">家庭智能化</button>
+                            <button class="quiz-option" data-value="office">办公智能化</button>
+                            <button class="quiz-option" data-value="health">健康管理</button>
+                            <button class="quiz-option" data-value="travel">出行便利</button>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button class="btn-quiz btn-prev" style="visibility: hidden;">上一步</button>
+                            <button class="btn-quiz btn-next">下一步</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 问题2 -->
+                    <div class="quiz-step" data-step="2">
+                        <h2>您的预算范围是？</h2>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-value="low">1-5万元</button>
+                            <button class="quiz-option" data-value="mid">5-10万元</button>
+                            <button class="quiz-option" data-value="high">10万元以上</button>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button class="btn-quiz btn-prev">上一步</button>
+                            <button class="btn-quiz btn-next">下一步</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 问题3 -->
+                    <div class="quiz-step" data-step="3">
+                        <h2>您最关注的功能是？</h2>
+                        <div class="quiz-options">
+                            <button class="quiz-option" data-value="control">智能控制</button>
+                            <button class="quiz-option" data-value="security">安全防护</button>
+                            <button class="quiz-option" data-value="energy">节能环保</button>
+                            <button class="quiz-option" data-value="convenience">便捷操作</button>
+                        </div>
+                        <div class="quiz-navigation">
+                            <button class="btn-quiz btn-prev">上一步</button>
+                            <button class="btn-quiz btn-next">查看推荐</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 推荐结果 -->
+                    <div class="quiz-result">
+                        <h2 class="result-title">✨ 为您推荐</h2>
+                        <p class="result-description">基于您的需求，我们为您推荐以下产品组合：</p>
+                        <div class="recommended-products" id="recommendedProducts">
+                            <!-- 动态生成推荐产品 -->
+                        </div>
+                        <div style="margin-top: 2rem;">
+                            <a href="products.html" class="btn-quiz btn-next">查看所有产品</a>
+                            <button class="btn-quiz btn-prev" onclick="location.reload()" style="margin-left: 1rem;">重新推荐</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>智联未来</h3>
+                    <p>用科技重新定义生活，让智能融入每一个场景，打造更美好的未来。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>电话：123-456-7899</p>
+                    <p>邮箱：md123456@edu.com</p>
+                    <p>地址：西安明德理工学院旁边500米</p>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅资讯</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="请输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h4>快速服务</h4>
+                    <ul>
+                        <li><a href="support.html">技术支持</a></li>
+                        <li><a href="careers.html">招聘信息</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="help.html">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智联未来科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <span>↑</span>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/advanced.js"></script>
+    <script>
+        // 智能推荐系统 - 重构版本
+        let userChoices = {};
+        let currentStep = 1;
+        const totalSteps = 3;
+        
+        // 初始化函数
+        function initQuiz() {
+            console.log('初始化智能推荐系统...');
+            bindEvents();
+            updateProgress();
+        }
+        
+        // 绑定事件
+        function bindEvents() {
+            // 绑定选项点击事件
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.onclick = function() {
+                    handleOptionClick(this);
+                };
+            });
+            
+            // 绑定按钮点击事件
+            const nextButtons = document.querySelectorAll('.btn-next');
+            const prevButtons = document.querySelectorAll('.btn-prev');
+            
+            nextButtons.forEach(btn => {
+                btn.onclick = function() {
+                    handleNextClick();
+                };
+            });
+            
+            prevButtons.forEach(btn => {
+                btn.onclick = function() {
+                    handlePrevClick();
+                };
+            });
+            
+            // 重新推荐按钮
+            const restartBtn = document.querySelector('button[onclick="location.reload()"]');
+            if (restartBtn) {
+                restartBtn.onclick = function() {
+                    location.reload();
+                };
+            }
+        }
+        
+        // 处理选项点击
+        function handleOptionClick(option) {
+            const step = option.closest('.quiz-step');
+            if (!step) return;
+            
+            const stepNum = parseInt(step.dataset.step);
+            const value = option.dataset.value;
+            
+            // 保存用户选择
+            userChoices[`step${stepNum}`] = value;
+            
+            // 更新选中状态
+            step.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            option.classList.add('selected');
+            
+            console.log(`步骤${stepNum}选择了:`, value);
+        }
+        
+        // 处理下一步点击
+        function handleNextClick() {
+            const currentStepEl = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+            const selected = currentStepEl ? currentStepEl.querySelector('.quiz-option.selected') : null;
+            
+            if (!selected) {
+                showMessage('请先选择一个选项');
+                return;
+            }
+            
+            if (currentStep < totalSteps) {
+                // 切换到下一步
+                currentStepEl.classList.remove('active');
+                currentStep++;
+                const nextStepEl = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+                if (nextStepEl) {
+                    nextStepEl.classList.add('active');
+                    updateProgress();
+                }
+            } else {
+                // 显示结果
+                showResult();
+            }
+        }
+        
+        // 处理上一步点击
+        function handlePrevClick() {
+            if (currentStep > 1) {
+                const currentStepEl = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+                currentStepEl.classList.remove('active');
+                currentStep--;
+                const prevStepEl = document.querySelector(`.quiz-step[data-step="${currentStep}"]`);
+                if (prevStepEl) {
+                    prevStepEl.classList.add('active');
+                    updateProgress();
+                }
+            }
+        }
+        
+        // 更新进度条
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            const progressFill = document.getElementById('progressFill');
+            if (progressFill) {
+                progressFill.style.width = progress + '%';
+            }
+        }
+        
+        // 显示结果
+        function showResult() {
+            // 隐藏所有步骤
+            document.querySelectorAll('.quiz-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            
+            // 更新进度条到100%
+            const progressFill = document.getElementById('progressFill');
+            if (progressFill) {
+                progressFill.style.width = '100%';
+            }
+            
+            // 显示结果
+            setTimeout(() => {
+                const resultEl = document.querySelector('.quiz-result');
+                if (resultEl) {
+                    resultEl.classList.add('active');
+                    renderRecommendation();
+                }
+            }, 500);
+        }
+        
+        // 计算推荐结果
+        function calculateRecommendation() {
+            const need = userChoices.step1 || 'home';
+            const budget = userChoices.step2 || 'low';
+            const feature = userChoices.step3 || 'control';
+            
+            console.log('用户选择:', { need, budget, feature });
+            
+            const recommendations = {
+                'home_low_control': [
+                    { icon: '🏠', name: '智能家居控制中心', desc: '全屋设备统一控制，支持语音和APP操作' },
+                    { icon: '💡', name: '智能照明系统', desc: '可调色温亮度，支持场景模式' },
+                    { icon: '🔌', name: '智能插座套装', desc: '远程控制家电，定时开关' }
+                ],
+                'home_mid_security': [
+                    { icon: '🏠', name: '智能家居控制中心', desc: '全屋设备统一控制，支持语音和APP操作' },
+                    { icon: '🔒', name: '智能门锁Pro', desc: '多重安全防护，指纹密码开锁' },
+                    { icon: '🛡️', name: '智能安防系统', desc: '24小时监控，移动侦测报警' },
+                    { icon: '💡', name: '智能照明系统', desc: '场景模式切换，定时控制' }
+                ],
+                'office_mid_convenience': [
+                    { icon: '🪑', name: '智能升降办公桌', desc: '健康办公新体验，久坐提醒' },
+                    { icon: '📹', name: '智能会议系统', desc: '远程协作更高效，高清视频通话' },
+                    { icon: '🖨️', name: '智能打印机', desc: '无线打印更便捷，手机直接打印' }
+                ],
+                'health_low_control': [
+                    { icon: '⌚', name: '智能健康手环Pro', desc: '24小时健康监测，运动数据记录' },
+                    { icon: '⚖️', name: '智能体脂秤', desc: '精准测量健康指标，APP同步数据' }
+                ]
+            };
+            
+            const key = `${need}_${budget}_${feature}`;
+            return recommendations[key] || recommendations['home_low_control'];
+        }
+        
+        // 渲染推荐结果
+        function renderRecommendation() {
+            const products = calculateRecommendation();
+            const container = document.getElementById('recommendedProducts');
+            
+            if (!container) return;
+            
+            container.innerHTML = products.map((product, index) => `
+                <div class="recommended-item" style="animation: fadeInUp 0.6s ease ${index * 0.2}s; animation-fill-mode: both;">
+                    <div class="recommended-item-icon">${product.icon}</div>
+                    <h3>${product.name}</h3>
+                    <p>${product.desc}</p>
+                    <div class="product-tags">
+                        <span class="tag">智能推荐</span>
+                        <span class="tag">高性价比</span>
+                    </div>
+                    <a href="products.html" class="btn-quiz btn-next" style="display: inline-block; margin-top: 1rem;">查看详情</a>
+                </div>
+            `).join('');
+        }
+        
+        // 显示消息
+        function showMessage(message) {
+            // 创建消息元素
+            const messageEl = document.createElement('div');
+            messageEl.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+                color: #0f0f0f;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                font-weight: 600;
+                z-index: 10000;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            `;
+            messageEl.textContent = message;
+            
+            document.body.appendChild(messageEl);
+            
+            setTimeout(() => {
+                if (document.body.contains(messageEl)) {
+                    document.body.removeChild(messageEl);
+                }
+            }, 2000);
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM加载完成，开始初始化...');
+            setTimeout(initQuiz, 100);
+        });
+    </script>
+</body>
+</html>

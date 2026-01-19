@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术支持 - 智联未来</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/advanced.css">
+    <style>
+        .support-page {
+            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e8 50%, #dcedc8 100%);
+            min-height: 80vh;
+        }
+        
+        .support-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .support-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .support-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            from {
+                filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+            }
+        }
+        
+        .support-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .support-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+        }
+        
+        .support-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .faq-list {
+            list-style: none;
+        }
+        
+        .faq-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #00ff88;
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .contact-support {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+        
+        .contact-support h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .guide-list {
+            list-style: none;
+        }
+        
+        .guide-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .guide-item:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .guide-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container nav-container-expanded">
+                <div class="logo">
+                    <a href="../index.html">智联未来</a>
+                </div>
+                <ul class="nav-menu many-items">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="solutions.html" class="nav-link">解决方案</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cases.html" class="nav-link">案例展示</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="team.html" class="nav-link">团队介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="experience.html" class="nav-link">在线体验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="news.html" class="nav-link">新闻动态</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">联系我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="recommend.html" class="nav-link">智能推荐</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main>
+        <section class="support-page">
+            <div class="support-container">
+                <div class="support-header">
+                    <h1>技术支持</h1>
+                    <p>为您提供全方位的技术支持和解决方案</p>
+                </div>
+                
+                <div class="support-content">
+                    <div class="support-card">
+                        <h3>常见问题</h3>
+                        <ul class="faq-list">
+                            <li class="faq-item">
+                                <div class="faq-question">如何连接智能家居设备？</div>
+                                <div class="faq-answer">下载智联未来APP，按照设备说明书进行配对连接即可。</div>
+                            </li>
+                            <li class="faq-item">
+                                <div class="faq-question">产品保修期是多久？</div>
+                                <div class="faq-answer">所有产品均享受2年免费保修，终身技术支持服务。</div>
+                            </li>
+                            <li class="faq-item">
+                                <div class="faq-question">如何更新设备固件？</div>
+                                <div class="faq-answer">APP会自动检测更新，您也可以在设置中手动检查更新。</div>
+                            </li>
+                            <li class="faq-item">
+                                <div class="faq-question">设备离线怎么办？</div>
+                                <div class="faq-answer">检查网络连接，重启设备，或联系技术支持协助解决。</div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <h3>使用指南</h3>
+                        <ul class="guide-list">
+                            <li class="guide-item">
+                                <div class="guide-icon">1</div>
+                                <div>
+                                    <strong>快速入门</strong>
+                                    <p>新用户快速上手指南</p>
+                                </div>
+                            </li>
+                            <li class="guide-item">
+                                <div class="guide-icon">2</div>
+                                <div>
+                                    <strong>产品手册</strong>
+                                    <p>详细的产品使用说明</p>
+                                </div>
+                            </li>
+                            <li class="guide-item">
+                                <div class="guide-icon">3</div>
+                                <div>
+                                    <strong>视频教程</strong>
+                                    <p>直观的操作演示视频</p>
+                                </div>
+                            </li>
+                            <li class="guide-item">
+                                <div class="guide-icon">4</div>
+                                <div>
+                                    <strong>故障排除</strong>
+                                    <p>常见问题解决方案</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="support-card">
+                        <h3>下载中心</h3>
+                        <ul class="guide-list">
+                            <li class="guide-item">
+                                <div class="guide-icon">📱</div>
+                                <div>
+                                    <strong>智联未来APP</strong>
+                                    <p>Android / iOS</p>
+                                </div>
+                            </li>
+                            <li class="guide-item">
+                                <div class="guide-icon">📄</div>
+                                <div>
+                                    <strong>产品说明书</strong>
+                                    <p>PDF格式下载</p>
+                                </div>
+                            </li>
+                            <li class="guide-item">
+                                <div class="guide-icon">🔧</div>
+                                <div>
+                                    <strong>驱动程序</strong>
+                                    <p>Windows / Mac</p>
+                                </div>
+                            </li>
+                            <li class="guide-item">
+                                <div class="guide-icon">📊</div>
+                                <div>
+                                    <strong>技术文档</strong>
+                                    <p>开发者资源</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-support">
+                    <h3>需要更多帮助？</h3>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <span>📞</span>
+                            <span>123-456-7899</span>
+                        </div>
+                        <div class="contact-method">
+                            <span>💬</span>
+                            <span>在线客服</span>
+                        </div>
+                        <div class="contact-method">
+                            <span>📧</span>
+                            <span>md123456@edu.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>智联未来</h3>
+                    <p>用科技重新定义生活，让智能融入每一个场景，打造更美好的未来。</p>
+                    <div class="social-links">
+                        <a href="#"><img src="../images/微信.svg" alt="微信"></a>
+                        <a href="#"><img src="../images/微博.svg" alt="微博"></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="about.html">关于我们</a></li>
+                        <li><a href="products.html">产品中心</a></li>
+                        <li><a href="solutions.html">解决方案</a></li>
+                        <li><a href="cases.html">案例展示</a></li>
+                        <li><a href="team.html">团队介绍</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p>电话：123-456-7899</p>
+                    <p>邮箱：md123456@edu.com</p>
+                    <p>地址：西安明德理工学院旁边500米</p>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅资讯</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="请输入您的邮箱">
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+                <div class="footer-section">
+                    <h4>快速服务</h4>
+                    <ul>
+                        <li><a href="support.html">技术支持</a></li>
+                        <li><a href="careers.html">招聘信息</a></li>
+                        <li><a href="partners.html">合作伙伴</a></li>
+                        <li><a href="terms.html">服务条款</a></li>
+                        <li><a href="help.html">帮助中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智联未来科技有限公司. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <span>↑</span>
+    </button>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/advanced.js"></script>
+</body>
+</html>

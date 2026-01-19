@@ -1,0 +1,381 @@
+/* 案例研究页面样式 */
+
+/* 页面标题样式 */
+.page-header {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8f5e8 50%, #dcedc8 100%);
+    color: #2c3e50;
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3));
+    }
+    to {
+        filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+    }
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+/* 案例筛选样式 */
+.case-filter {
+    padding: 40px 0;
+    background: #f8f9fa;
+    position: relative;
+    z-index: 100;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid #00ff88;
+    background: white;
+    color: #00ff88;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+/* 案例网格样式 */
+.cases-grid {
+    padding: 80px 0;
+}
+
+.cases-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.case-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 400px;
+    position: relative;
+}
+
+.case-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.case-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.case-item:hover .case-image img {
+    transform: scale(1.1);
+}
+
+.case-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding-bottom: 2rem;
+}
+
+.case-item:hover .case-overlay {
+    opacity: 1;
+}
+
+.case-item:hover .case-info {
+    opacity: 0;
+}
+
+.case-overlay-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    width: 100%;
+}
+
+.case-overlay-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.case-overlay-content p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.view-case {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    color: #0f0f0f;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.view-case:hover {
+    background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+    transform: translateY(-2px);
+}
+
+.case-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    color: white;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.case-category {
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.case-info h3 {
+    font-size: 1.3rem;
+    color: #00ff88;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.case-info p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* 成功数据样式 */
+.success-stats {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-item {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ff88;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* 客户评价样式 */
+.client-testimonials {
+    padding: 100px 0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.testimonial-item {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-content {
+    margin-bottom: 2rem;
+}
+
+.testimonial-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.rating {
+    color: #f39c12;
+    font-size: 1.2rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    color: #2c3e50;
+    margin-bottom: 0.3rem;
+}
+
+.author-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* 案例筛选动画 */
+.filter-btn.active {
+    background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+    color: white;
+}
+
+.case-item {
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .cases-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .case-item {
+        height: 350px;
+    }
+
+    .case-overlay-content {
+        padding: 1.5rem;
+    }
+
+    .case-overlay-content h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .cases-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .case-item {
+        height: 300px;
+    }
+
+    .case-overlay-content {
+        padding: 1rem;
+    }
+
+    .case-overlay-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .view-case {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}

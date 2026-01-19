@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腾飞优品 - 首页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- LOGO -->
+                <div class="logo">
+                    <img src="img/腾飞优品logo.png" alt="腾飞优品">
+                    <span>腾飞优品</span>
+                </div>
+                
+                <!-- 主导航 -->
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">首页</a></li>
+                        <li><a href="digital.html">数码电子</a></li>
+                        <li><a href="clothes.html">服装鞋帽</a></li>
+                        <li><a href="sports.html">运动户外</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- 购物车 -->
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <img src="img/购物车.png" alt="购物车">
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 广告轮播图 -->
+    <section class="banner">
+        <div class="container">
+            <div class="banner-slider">
+                <div class="slide active">
+                    <img src="img/数码专场.png" alt="数码专场">
+                    <div class="slide-content">
+                        <h2>数码电子</h2>
+                        <p>品质保证，售后无忧</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/服装特惠.png" alt="服装特惠">
+                    <div class="slide-content">
+                        <h2>服装鞋帽</h2>
+                        <p>时尚潮流，品味生活</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="img/运动装备.png" alt="运动装备">
+                    <div class="slide-content">
+                        <h2>运动户外</h2>
+                        <p>健康生活，从运动开始</p>
+                    </div>
+                </div>
+                
+                <!-- 轮播控制按钮 -->
+                <div class="slider-controls">
+                    <button class="prev" id="prevBtn">‹</button>
+                    <button class="next" id="nextBtn">›</button>
+                </div>
+                
+                <!-- 轮播指示器 -->
+                <div class="slider-indicators">
+                    <span class="indicator active" data-slide="0"></span>
+                    <span class="indicator" data-slide="1"></span>
+                    <span class="indicator" data-slide="2"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推荐商品区域 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 数码电子 -->
+            <section class="product-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span>数码电子</span>
+                        <span class="title-subtitle">科技改变生活，精选数码产品</span>
+                    </h2>
+                    <a href="digital.html" class="view-more">查看更多 →</a>
+                </div>
+                <div class="product-grid" id="digitalProducts">
+                    <!-- 商品将通过JavaScript动态加载 -->
+                </div>
+            </section>
+
+            <!-- 服装鞋帽 -->
+            <section class="product-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span>服装鞋帽</span>
+                        <span class="title-subtitle">时尚潮流，品质生活</span>
+                    </h2>
+                    <a href="clothes.html" class="view-more">查看更多 →</a>
+                </div>
+                <div class="product-grid" id="clothesProducts">
+                    <!-- 商品将通过JavaScript动态加载 -->
+                </div>
+            </section>
+
+            <!-- 运动户外 -->
+            <section class="product-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span>运动户外</span>
+                        <span class="title-subtitle">运动改变生活，享受健康人生</span>
+                    </h2>
+                    <a href="sports.html" class="view-more">查看更多 →</a>
+                </div>
+                <div class="product-grid" id="sportsProducts">
+                    <!-- 商品将通过JavaScript动态加载 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>品牌介绍</h3>
+                    <p>腾飞优品致力于为用户提供优质的购物体验，精选全球好物，品质保证，服务至上。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="#">公司简介</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#">微信公众号</a>
+                        <a href="#">新浪微博</a>
+                        <a href="#">抖音号</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 腾飞优品. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
