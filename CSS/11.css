@@ -1,0 +1,18 @@
+﻿#aaa {
+    color: red;
+    font-size: 16px;
+}
+
+#bbb {
+    color: blue;
+    font-size: 18px;
+}
+
+#ccc {
+    color: green;
+    font-size: 20px;
+}
+
+* {
+    background-color: rgb(139, 231, 200);
+}
