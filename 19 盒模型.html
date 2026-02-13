@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            width: 500px;
+            height: 300px;
+            border: black solid 10px;
+            box-sizing: border-box; /* 盒模型的宽度和高度包含了边框：使内边距不撑大盒子的宽度和高度 */
+        }
+        .b {
+            width: 500px;
+            height: 300px;
+            border: black solid 10px;
+            padding: 100px;
+            margin: auto;  /* 使盒子水平居中 */
+            box-sizing: border-box;
+        }
+        .c {
+            width: 500px;
+            height: 300px;
+            border: black solid 10px;
+            margin: 100px;  /* 表示外边距的大小 */
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="a"></div>
+    <div class="b">一段和padding（内边距）相关的文字</div>
+    <div class="c">一段和margin（外边距）相关的文字</div>
+</body>
+</html>
