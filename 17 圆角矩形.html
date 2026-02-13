@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            width: 300px;
+            height: 200px;
+            border: 2px solid rgb(24, 96, 78);    /* 边框参数：宽度、样式、颜色 */
+            border-radius: 10px;        /* 圆角半径 */
+        }
+        .b {
+            width: 200px;
+            height: 200px;
+            border: 2px dotted rgb(138, 91, 21);
+            border-radius: 50%;        /* 圆角半径为50%，即半径为高度的一半 */
+        }
+        .c {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed rgb(255, 165, 0);
+            border-bottom-right-radius: 50px;
+            border-top-left-radius: 50px;
+        }
+        .d {
+            width: 200px;
+            height: 200px;
+            border-style: double;
+            border-color: rgb(133, 45, 7);
+            border: 2px solid rgb(133, 45, 7);
+            border-radius: 30px 90px 50px 230px;    /* 四个角的圆角半径 */
+        }
+        .e {
+            width: 200px;
+            height: 200px;
+            border: 2px solid rgb(206, 9, 35);
+            border-radius: 50% 50%;    /* 四个角的圆角半径均为50% */
+        }
+    </style>
+</head>
+<body>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="d"></div>
+    <div class="e"></div>
+</body>
+</html>
