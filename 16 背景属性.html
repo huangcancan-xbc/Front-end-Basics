@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {  /* 全局样式重置，避免默认边距影响 */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            padding: 20px;
+            font-family: "Microsoft YaHei", sans-serif;  /* 适配中文显示 */
+            line-height: 1.6;
+        }
+        /* 背景展示容器 */
+        .bg-demo {
+            width: 500px;
+            height: 300px;
+            background-color: #f2f2f2;  /* 背景色（图片加载失败时显示） */
+            background-image: url("https://avatars.githubusercontent.com/u/170857044?v=4");  /* 背景图片 */
+            background-repeat: no-repeat;  /* 背景不重复 */
+            background-position: center;  /* 背景居中 */
+            background-size: cover;  /* 背景覆盖容器 */
+            border: 1px solid #ddd;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;  /* 文字白色，对比背景更清晰 */
+            text-shadow: 0 0 5px #000;  /* 文字加阴影，提升可读性 */
+            padding: 20px;
+            text-align: center;
+        }
+        /* 属性说明区域 */
+        .bg-props {
+            width: 500px;
+        }
+        .bg-props h3 {
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #666;
+            padding-bottom: 5px;
+        }
+        .bg-props .prop-item {
+            margin-bottom: 12px;
+            padding-left: 10px;
+            border-left: 3px solid #4299e1;
+        }
+        .bg-props .prop-name {
+            font-weight: bold;
+            color: #4299e1;
+        }
+        .bg-props .prop-desc {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景效果展示区 -->
+    <div class="bg-demo">
+        背景展示示例：使用 cover 模式让图片覆盖整个容器，居中且不重复
+    </div>
+
+    <!-- 背景属性说明区 -->
+    <div class="bg-props">
+        <h3>CSS 常用背景属性说明</h3>
+        
+        <div class="prop-item">
+            <span class="prop-name">background-color</span>
+            <div class="prop-desc">
+                作用：设置元素的背景颜色。<br>
+                取值：十六进制（如 #f2f2f2）、RGB（如 rgb(242,242,242)）、RGBA（带透明度）、颜色名（如 red）、transparent（透明）。
+            </div>
+        </div>
+
+        <div class="prop-item">
+            <span class="prop-name">background-image</span>
+            <div class="prop-desc">
+                作用：设置元素的背景图片。<br>
+                取值：url(图片路径)（本地/网络图片）、none（无背景图，默认值）。
+            </div>
+        </div>
+
+        <div class="prop-item">
+            <span class="prop-name">background-repeat</span>
+            <div class="prop-desc">
+                作用：设置背景图片是否重复及重复方式。<br>
+                取值：repeat（默认，水平+垂直重复）、no-repeat（不重复）、repeat-x（仅水平重复）、repeat-y（仅垂直重复）。
+            </div>
+        </div>
+
+        <div class="prop-item">
+            <span class="prop-name">background-position</span>
+            <div class="prop-desc">
+                作用：设置背景图片在元素内的位置。<br>
+                取值：关键字（center/top/bottom/left/right，如 center center）、像素（如 50px 100px）、百分比（如 50% 50%）。
+            </div>
+        </div>
+
+        <div class="prop-item">
+            <span class="prop-name">background-size</span>
+            <div class="prop-desc">
+                作用：设置背景图片的尺寸。<br>
+                取值：auto（默认，保持图片原尺寸）、cover（覆盖整个容器，图片可能被裁剪）、contain（图片完整显示，容器可能留白）、具体尺寸（如 200px 150px）、百分比（如 100% 80%）。
+            </div>
+        </div>
+
+        <div class="prop-item">
+            <span class="prop-name">background（简写属性）</span>
+            <div class="prop-desc">
+                作用：合并所有背景属性，简化代码。<br>
+                示例：background: #f2f2f2 url("图片路径") no-repeat center/cover;（顺序：color → image → repeat → position/size）。
+            </div>
+        </div>
+    </div>
+</body>
+</html>
