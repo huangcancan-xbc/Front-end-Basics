@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            color: blue;
+            text-decoration: none;  /*去掉下划线*/
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 536px;
+        }
+
+        .title .col-1 {
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        .col-1{
+            width: 80%;
+            text-align: left;   /*左对齐*/
+        }
+
+        .col-2 {
+            width: 20%;
+            text-align: center;
+        }
+
+        .icon {
+            background-image: url(./img/icon/换一换.png);
+            width: 20px;
+            height: 20px;
+            background-size: 100% 100%;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        .content {
+            font-size: 18px;
+            line-height: 15px;  /*行高*/
+        }
+
+        .content .col-1, .content .col-2 {
+            border-bottom: 2px solid #f3f3f3;
+        }
+
+        .num {
+            font-size: 20px;
+            color: #fffff3;
+        }
+
+        .first {
+            background-color: #f54545;
+            padding-right: 8px;     /*右边距*/
+        }
+
+        .second {
+            background-color: #ff8547;
+            padding-right: 8px;
+        }
+
+        .third {
+            background-color: #ffac38;
+            padding-right: 8px;
+        }
+
+        .other {
+            background-color: #8eb9f5;
+            padding-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <th class="title col-1">百度热榜</th>
+        <th class="title col-2"><a href="#">换一换<span class="icon"></span></a></th>
+        <tr class="content">
+            <td class="col-1"><span class="num first">1</span><a href="#">热榜信息</a></td>
+            <td class="col-2">666万</td>
+        </tr>
+        <tr class="content">
+            <td class="col-1"><span class="second first">2</span><a href="#">热榜信息</a></td>
+            <td class="col-2">666万</td>
+        </tr>
+        <tr class="content">
+            <td class="col-1"><span class="third first">3</span><a href="#">热榜信息</a></td>
+            <td class="col-2">666万</td>
+        </tr>
+        <tr class="content">
+            <td class="col-1"><span class="other first">4</span><a href="#">热榜信息</a></td>
+            <td class="col-2">666万</td>
+        </tr>
+    </table>
+</body>
+</html>
