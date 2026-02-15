@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+    var name = "张三"   // 定义变量 name，值为 "张三"
+    console.log(name)       /* 输出 "张三" */
+    console.log(typeof name)
+
+    let age = 20
+    console.log(age)    // 更推荐使用
+    console.log(typeof age)
+
+    age = name
+    console.log(age)
+    console.log(typeof age)
+
+    console.log(10 / 0)     // 输出Infinity表示无穷大
+    console.log(-10 / 0)    // 输出-Infinity表示负无穷大
+    console.log("aaaa" - 10)// 输出NaN表示非数字值
+
+
+    let arr = 'abcd"123456"'
+    console.log(arr.length)
+    console.log(10 + 10)
+    console.log("10" + 10)
+
+    console.log(true)
+    console.log(true + 1)
+    console.log(false + true)
+
+    let temp
+    console.log(temp)
+    console.log(typeof temp)
+    console.log(temp + "123")
+    console.log(temp + 1)
+    console.log(temp + true)
+
+    let NULL = null
+    console.log(temp + 10)
+    console.log(NULL)
+    console.log(NULL + 10)
+
+    let x = 123
+    let y = "123"
+    console.log(x == y)     // true，==会比较变量内容
+    console.log(x === y)    // false，===会比较变量类型+内容
+</script>
+</html>
