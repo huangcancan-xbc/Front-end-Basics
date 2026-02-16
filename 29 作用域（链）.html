@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let sum = 10
+    function test1()
+    {
+        let sum = 100
+        console.log(sum)
+    }
+    
+    function test2()
+    {
+        let sum = 200
+        console.log(sum)
+    }
+    
+    console.log(sum)
+    test1()
+    test2()
+
+    for(i = 0; i < 100; i++)
+    {
+
+    }
+    // for(let i = 0; i < 100; i++)
+    // {
+
+    // }
+    console.log(i)
+
+    // 作用域链
+    let num = 1
+    function test3()
+    {
+        // let num = 2 
+        console.log(num)
+        function temp()
+        {
+            // let num = 3
+            console.log(num)
+        }
+        temp()
+    }
+
+    test3()
+
+</script>
+</html>
