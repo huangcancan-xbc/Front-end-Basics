@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let ret = 0
+    for(i = 100; i<= 200; i++)
+    {
+        if(i % 3 == 0)
+        {
+            ret = i
+            break;
+        }
+    }
+
+    alert(ret);
+    alert(i)    // is属于全局变量，如果加上let就是局部变量
+</script>
+</html>
