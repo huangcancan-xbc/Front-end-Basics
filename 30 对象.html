@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let obj = {
+        name: "蔡徐坤",
+        age: 30,
+        sex: "男",
+        height: 170,
+        weight: 60,
+        hobby: ["唱", "跳", "rap", "篮球"],
+        sayHello: function() {
+            console.log("大家好，我是练习时长两年半的" + this.name)
+        }
+    }
+    console.log(obj.name)
+    console.log(obj.age)
+    console.log(obj.sex)
+    console.log(obj.height)
+    console.log(obj.weight)
+    console.log(obj.hobby)
+    obj.sayHello()
+
+
+    // let  ik = {}     // 同样的效果
+    let  ik = new Object()
+    ik.name = "坤坤"
+    ik.age = 25
+    ik.sex = "男"
+    ik.sayHello = function() {
+        console.log("大家好，我是练习时长两年半的" + this.name)
+    }
+    console.log(ik.name)
+    console.log(ik.age)
+    console.log(ik.sex)
+    ik.sayHello()
+
+
+    // 构造函数
+    function kk(name, age, sex) {
+        this.name = name
+        this.age = age
+        this.sex = sex
+        this.sayHello = function() {
+            console.log("大家好，我是练习时长两年半的" + this.name)
+        }
+    }
+
+    let kk1 = new kk("蔡徐坤", 30, "男")
+    let kk2 = new kk("坤坤", 25, "男")
+    console.log(kk1.name)
+    console.log(kk1.age)
+    console.log(kk1.sex)
+    kk1.sayHello()
+    console.log(kk2.name)
+    console.log(kk2.age)
+    console.log(kk2.sex)
+    kk2.sayHello()
+
+
+    // class
+    class ikun{
+        constructor(name, age, sex) {
+            this.name = name
+            this.age = age
+            this.sex = sex
+        }
+        sayHello() {
+            console.log("大家好，我是练习时长两年半的" + this.name)
+        }
+
+        static other = "kunkun"
+        static jinitaimei()
+        {
+            return "鸡你太美"
+        }
+    }
+    let ikun1 = new ikun("蔡徐坤", 30, "男")
+    ikun1.sayHello()
+    alert(ikun.other)
+    alert(ikun.jinitaimei())
+</script>
+</html>
