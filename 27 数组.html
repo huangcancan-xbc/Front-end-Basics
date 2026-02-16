@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let arr = new Array();
+    let arr1 = [1, 2, 'hhhh', true, false];
+    let arr2 = arr1
+
+    console.log(arr);
+    console.log(arr1);
+    console.log(arr1[2])
+    console.log(arr1.length)
+    console.log(arr1[10])
+    console.log(arr1[-10])
+    console.log(typeof arr1)
+    arr1 = "动态数据类型改变"
+    console.log(arr1)
+    console.log(typeof arr1)
+
+    arr2.length = 10
+    console.log(arr2)
+    arr2[7] = "valus"
+    console.log(arr2)
+    console.log(arr2[6])
+
+
+    let v1 = arr2
+    console.log(v1)
+    v1.push(1000)
+    console.log(v1)
+
+    v1.splice(1, 20)    // splice用于删除数组元素，参数含义从数组下标1开始删除20个元素
+    console.log(v1)
+</script>
+</html>
