@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+        class ikun{
+        constructor(name, age, sex) {
+            this.name = name
+            this.age = age
+            this.sex = sex
+        }
+        sayHello() {
+            console.log("大家好，我是练习时长两年半的" + this.name)
+        }
+
+        static other = "kunkun"
+        static jinitaimei()
+        {
+            return "鸡你太美"
+        }
+    }
+
+    class lovekun extends ikun
+    {
+        constructor(name, age, sex, hobby) {
+            super(name, age, sex)
+            this.hobby = hobby
+        }
+        sayHello() {
+            alert("大家好，我是练习时长两年半的" + this.name + "，我的爱好是" + this.hobby)
+        }
+    }
+
+    let lk = new lovekun("lovekun", 20, "男", "唱歌")
+    lk.sayHello()
+    console.log(ikun.other)
+</script>
+</html>
