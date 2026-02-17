@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" onkeyup="myOnKeyUp()">
+
+</body>
+<script>
+    let input = document.querySelector('input');
+    input.onkeydown = function(event)
+    {
+        console.log("键盘正在按下")
+        let a = event.keyCode;
+        // console.log(a);
+        let b = String.fromCharCode(a);
+        console.log(b);
+
+        if(event.shiftKey)
+        {
+            alert("shift键被按下");
+        }
+        if(event.ctrlKey)
+        {
+            alert("ctrl键被按下");
+        }
+        if(event.altKey)
+        {
+            alert("alt键被按下");
+        }
+    }
+    
+    // onkeypress会区分大小写
+    input.onkeypress = function(event)
+    {
+        console.log("键盘正在按下")
+        let a = event.keyCode;
+        // console.log(a);
+        let b = String.fromCharCode(a);
+        console.log(b);
+    }
+
+    function myOnKeyUp()
+    {
+        console.log("键盘已经松开")
+    }
+
+</script>
+</html>
