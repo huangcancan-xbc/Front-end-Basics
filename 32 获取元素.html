@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <h2><span><input type="text"></span></h2>
+</body>
+<script>
+    console.log(document.querySelector('.box1')); //获取第一个class为box1的div元素
+    console.log(document.querySelector('h2').querySelector('span').querySelector('input')); //获取h2元素下面的span元素下面的input元素
+    console.log(document.querySelectorAll('div')); //获取所有class为box2的div元素
+</script>
+</html>
