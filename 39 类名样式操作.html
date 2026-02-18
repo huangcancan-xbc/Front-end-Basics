@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .light {
+            background-color: aliceblue;
+            color: black;
+            width: 100%;
+            height: 100%;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+        }
+
+        .dark {
+            background-color: black;
+            color: aliceblue;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="light" onclick="changeStyle()">
+        这是一段话<br>
+        这是一段话<br>
+        这是一段话<br>
+        这是一段话<br>
+        这是一段话<br>
+    </div>
+</body>
+<script>
+    function changeStyle() {
+        let element = document.querySelector('div');
+        if(element.className == "light")
+        {
+            element.className = "dark";
+        }
+        else
+        {
+            element.className = "light";
+        }
+    }
+</script>
+</html>
