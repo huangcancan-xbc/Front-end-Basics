@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="all" type="checkbox" onclick="SelectAll()">选中全部<br>
+    <input type="checkbox" class="select">选项1<br>
+    <input type="checkbox" class="select">选项2<br>
+    <input type="checkbox" class="select">选项3<br>
+    <input type="checkbox" class="select">选项4<br>
+</body>
+<script>
+    let all = document.querySelector(".all")
+    let select = document.querySelectorAll(".select")
+    console.dir(all)
+    function SelectAll()
+    {
+        for(i = 0; i < select.length; i++)
+        {
+            select[i].checked = all.checked
+        }
+    }
+
+    for(i = 0; i < select.length; i++)
+    {
+        select[i].onclick = function()
+        {
+            all.checked = IsSelectAll(select)
+        }
+    }
+
+    function IsSelectAll(select)
+    {
+        for(i = 0; i < select.length; i++)
+        {
+            if(!select[i].checked)
+            {
+                return false
+            }
+        }
+        return true
+    }
+</script>
+</html>
