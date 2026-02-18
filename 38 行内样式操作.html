@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 这里是 CSS 样式表，JS 操作行内样式优先级更高，会覆盖这里的设置 */
+    </style>
+</head>
+<body>
+    <div>行内样式操作：element.style.[属性名] = [属性值]</div>
+    <div>或者element.style.cssText = [属性名+属性值]</div>
+
+    <div id="target" style="font-size: 10px; color: red;" onclick="changeSize()">点我会改变字体大小</div>
+</body>
+<script>
+    function changeSize()
+    {
+        // document.querySelector传 CSS 选择器：
+        // ID 前面加 #。比如 #myId。ID 是唯一的，一个页面只能有一个。
+        // 类名前面加 .。比如 .myClass。类名可以重复，好多元素共用。
+        // 标签名直接写。比如 div、p。
+        let element = document.querySelector('#target')
+        console.log(element.style)
+        let size = parseInt(element.style.fontSize) + 10
+
+
+        // 下面两种写法效果一样
+        // 注意：这种修改方式之影响到特定样式，其他内联样式不变！
+        // element.style.fontSize = size + 'px'     // 推荐写法：只改 fontSize
+
+        // 慎用写法：cssText 会替换整个 style 字符串！
+        // 原来 style="font-size:10px; color:red;" 会被整个换成 'font-size:20px'，结果：color:red 丢了！其他行内样式全清空！
+        element.style.cssText = 'font-size:' + size + 'px'  
+
+        
+        // 如果非要用 cssText 还想保留其他样式，得自己拼：
+        // element.style.cssText += 'font-size:' + size + 'px;'
+        // 但容易重复、难维护，不推荐。日常改单个属性就用 style.属性名
+    }
+</script>
+</html>
