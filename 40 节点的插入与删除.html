@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p class="p1">这是一个p标签1</p>
+        <p class="del">这是一个p标签2</p>
+        <p>这是一个p标签3</p>
+    </div>
+</body>
+<script>
+    let element = document.createElement('h3');     // createElement: 只在内存里造了个新元素，还没上页面，看不见
+    element.innerHTML = "这是一个h3标签";
+    let div = document.querySelector('div');        // 先拿到父容器，后面插入删除得靠它
+    // appendChild: 把元素尾插到父容器的最后面
+    div.appendChild(element);
+
+    // 插入节点
+    let new_node = document.createElement('p');
+    new_node.innerHTML = "这是一个新插入的p标签"
+    // insertBefore 语法：父节点.insertBefore(新节点，参考节点);
+    // 效果：新节点会插到"参考节点"的前面，跟参考节点当兄弟
+    // 注意：
+    // 1. 参考节点必须是父节点的亲儿子，不然报错
+    // 2. 参考节点传 null 或 undefined，就变成追加到最后，跟 appendChild 一样
+    div.insertBefore(new_node, document.querySelector('.p1'))
+    // 直接尾插的两种写法：
+    // div.insertBefore(new_node, null)
+    // div.appendChild(new_node)
+
+    // 删除节点
+    let delChild = document.querySelector('.del');
+    // removeChild 语法：父节点.removeChild(要删的子节点);
+    // 注意：
+    // 1. 必须通过"爸爸"来删"儿子"，不能自己删自己（旧 API 限制）
+    // 2. 返回值就是被删的那个节点，还在内存里，没消失
+    // 3. 从页面移除后，再插入别的地方，能复用，不用重新创建
+    let temp = div.removeChild(delChild);
+    div.appendChild(temp);  // 被删除的节点只是从dom树中删除了，但是仍然存在内存中，可以随时加入到dom树的其他位置
+</script>
+</html>
