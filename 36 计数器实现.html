@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input class="input" type="text" name="" id="" value="0">
+    <input class="add" type="button" value="+1" onclick="Add()">
+    <input class="sub" type="button" value="-1" onclick="Sub()">
+</body>
+<script>
+    function Add() {
+        let input = document.querySelector('.input');
+        input.value = parseInt(input.value) + 1;
+    }
+
+    function Sub() {
+        let input = document.querySelector('.input');
+        input.value = parseInt(input.value) - 1;
+    }
+</script>
+</html>
