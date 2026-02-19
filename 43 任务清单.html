@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;    /* 重置默认的外边距 */
+            padding: 0px;   /* 重置默认的内边距 */
+            box-sizing: border-box;     /* 让内边距和外边距都包含内容 */
+        }
+
+        .nav {
+            width: 800px;
+            height: 100px;
+            margin: 0 auto;     /* 居中 */
+            display: flex;      /* 启用flex布局 */
+            align-items: center;
+        }
+
+        .nav input {
+            width: 600px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        .nav button {
+            width: 200px;
+            height: 50px;
+            background-color: aquamarine;
+            color:rgb(101, 17, 202);
+            font-size: 20px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .container {
+            width: 800px;
+            display: flex;
+            margin: 0 auto;
+        }
+
+        h3 {
+            background-color: grey;
+            color:black;
+            text-align: center;
+            width: 400px;
+            height: 60px;
+            padding-top: 15px;
+        }
+
+        .item {
+            display: flex; 
+            align-items: center; 
+            height: 40px;
+        }
+
+        .item span {
+            font-size: 20px;
+            width: 300px;
+            display: flex;
+            align-items: center;
+            margin-left: 5px;
+        }
+        
+        .item button { 
+            font-size: 20px;
+            width: 50px;
+            height: 30px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <input class="task-input" type="text"><button onclick="newJob()">新建任务</button>
+    </div>
+
+    <div class="container">
+        <div class="todo">
+            <h3>未完成</h3>
+            <div class="list">
+                <!-- 原始项 -->
+                <div class="item">
+                    <input type="checkbox">
+                    <span>吃饭</span><button>删除</button>
+                </div>
+            </div>
+        </div>
+        <div class="done">
+            <h3>已完成</h3>
+            <div class="list"></div>
+        </div>
+    </div>
+</body>
+<script>
+    // 专门用来绑定事件的函数，复用逻辑
+    function bindEvents(div) {
+        let checkbox = div.querySelector('input');
+        let button = div.querySelector('button');
+        
+        // 绑定删除事件
+        button.onclick = function()
+        {
+            div.remove();
+        }
+        
+        // 绑定勾选事件
+        checkbox.onchange = function()
+        {
+            if (this.checked)
+            {
+                document.querySelector('.done .list').appendChild(div);
+            }
+            else
+            {
+                document.querySelector('.todo .list').appendChild(div);
+            }
+        }
+    }
+
+    function newJob()
+    {
+        let input = document.querySelector('.task-input');
+        let message = input.value;
+        if (!message)
+        {
+            return;
+        }
+
+        // 增加/删除的项列表
+        let list = document.querySelector('.todo .list');
+        
+        // 创建最外层的div
+        let div = document.createElement('div');
+        div.className = 'item';
+
+        // 创建复选框
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+
+        // 创建任务
+        let span = document.createElement('span');
+        span.innerHTML = message;
+
+        // 创建删除按钮
+        let button = document.createElement('button');
+        button.innerHTML = '删除';
+
+        // 添加任务的完整信息
+        div.appendChild(checkbox);
+        div.appendChild(span);
+        div.appendChild(button);
+        list.appendChild(div);
+
+        // 新建的项也要绑定事件
+        bindEvents(div);
+
+        input.value = '';   // 清空输入框
+    }
+
+    // 页面加载完，给原本就存在的项绑定事件
+    document.querySelectorAll('.todo .list .item').forEach(function(item) {
+        bindEvents(item);
+    });
+</script>
+</html>
