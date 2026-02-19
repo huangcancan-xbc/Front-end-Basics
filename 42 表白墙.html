@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>表白墙</h1>
+        <p>请输入相关信息，点击提交，数据将会展示在表格中</p>
+        <div class="div1">
+            <span>昵称：</span><input type="text" class="edit">
+        </div>
+        <div class="div1">
+            <span>对谁：</span><input type="text" class="edit">
+        </div>
+        <div class="div1">
+            <span>留言：</span><input type="text" class="edit">
+        </div>
+        <div class="div1">
+            <input type="button" value="提交" class="submit" onclick="Submit()">
+        </div>
+    </div>
+</body>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .container {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    p {
+        text-align: center;
+        color: gray;
+        line-height: 60px;
+    }
+
+    .div1 {
+        display: flex;  /* 使div1内的元素排列为一行 */
+        justify-content: center;  /* 使div1内的元素水平居中 */
+        align-items: center;  /* 使div1内的元素垂直居中 */
+    }
+
+    .edit {
+        margin-bottom: 20px;    /* 使输入框下边距为20px */
+        width: 200px;
+        height: 30px;
+    }
+
+    span {
+        font-size: 20px;
+        width: 70px;
+        margin-bottom: 20px;
+    }
+
+    .submit {
+        background-color: rgb(29, 211, 29);
+        color:aliceblue;
+        width: 270px;
+        height: 40px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    /* active表示鼠标按下未松开 */
+    .submit:active {
+        background-color: rgb(40, 131, 5);
+    }
+</style>
+
+<script>
+    function Submit() {
+        let edits = document.querySelectorAll('.edit');
+        let left = edits[0].value;
+        let right = edits[1].value;
+        let message = edits[2].value;
+        let div = document.createElement('div');
+        div.className = 'div1'
+        div.innerHTML = left + " 给 " + right + " 留言了：" + message;
+        document.body.appendChild(div);
+        edits[0].value = "";
+        edits[1].value = "";
+        edits[2].value = "";
+    }
+</script>
+</html>
