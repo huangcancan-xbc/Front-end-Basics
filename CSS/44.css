@@ -1,0 +1,141 @@
+﻿* {
+    margin: 0px;    /* 所有元素的外边距 */
+    padding: 0px;   /* 所有元素的内边距 */
+    box-sizing: border-box; /* 盒模型 */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-image: url(https://github.com/huangcancan-xbc/Drawing-bed/blob/master/Blog/20250307201300705.jpg?raw=true);
+    background-size: cover;     /* 让背景图片完全覆盖其容器，同时保证图片的宽高比不变（不会拉伸变形） */
+    background-repeat: no-repeat; /* 背景图片不重复 */
+}
+
+.nav {
+    width: 100%;
+    height: 70px;
+    color:aliceblue;
+    background-color: rgba(128, 128, 128, 0.5);
+    display: flex;
+    justify-content: left;  /* 左对齐 */
+    align-items: center;    /* 垂直居中 */
+}
+
+.nav .space
+{
+    width: 65%;     /* 占位符 */
+}
+
+.nav img{
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.nav a {
+    color: aliceblue;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;  /* 两端对齐 */
+    align-items: center;    /* 垂直居中 */
+    margin: 0 auto;         /* 居中 */
+    width: 100%;
+    height: calc(100% - 50px);
+}
+
+.container .container-left {
+    width: 30%;
+    height: 100%;
+    /* background-color: rgb(173, 6, 34); */
+}
+
+.container .container-right {
+    width: 70%;
+    height: 100%;
+    overflow: auto;     /* 允许内容溢出：仅滚动右边博客内容，可以避免博客文章太多导致滚动样式怪怪的 */
+    /* background-color: aqua; */
+}
+
+.card {
+    width: 60%;
+    height: 50%;
+    background-color: rgb(255, 255, 255, 0.5);
+    margin-top: 30px;
+    margin-right: 5px;
+    margin-left: 150px;
+    border-radius: 15px;
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-left: 70px;
+    margin-top: 36px;
+    
+}
+
+.card h3 {
+    text-align: center;  /* 居中 */
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.card a {
+    display: block;     /* 块级元素 */
+    text-align: center; /* 居中 */
+    color:rgb(6, 146, 184);
+    text-decoration: none;  /* 去掉下划线 */
+    margin-bottom: 15px;
+}
+
+.card .item {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.blog {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255, 0.2);
+}
+
+.blog .title {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.blog .date {
+    font-size: 20px;
+    margin-top: 10px;
+    color:rgb(120, 7, 64);
+    text-align: center;
+}
+
+.blog .desc {
+    text-indent: 2em;   /* 首行缩进 */
+    line-height: 1.5;    /* 行高 */
+    text-align: justify; /* 两端对齐 */
+    margin-left: 15px;
+    margin-right: 40px;
+}
+
+.blog .full-text {
+    display: block;     /* 块级元素 */
+    text-align: center;  /* 居中对齐 */
+    width: 120px;
+    height: 40px;
+    border: 2px solid rgb(185, 174, 13);
+    margin: 5px 40px 0px auto;
+    line-height: 35px;
+}
