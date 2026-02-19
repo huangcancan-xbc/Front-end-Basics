@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .true {
+            color: green;
+        }
+
+        .false {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input class="reset_button" type="button" value="重新开始" onclick="reset()"><br>
+    请输入要猜的数字：<input class="target" type="text" value=""><input type="button" value="猜" onclick="start()"><br>
+    已经猜的次数：<span class="count">0</span> 次<br>
+    结果：<span class="ret"></span>
+</body>
+<script>
+    let target_element = document.querySelector('.target');
+    let count_element = document.querySelector('.count');
+    let ret_element = document.querySelector('.ret');
+    function reset()
+    {
+        target_element.value = 0
+        count_element.innerHTML = 0
+        ret_element.innerHTML = null
+        val = Math.floor(Math.random() * 100) + 1
+    }
+
+    let val = Math.floor(Math.random() * 100) + 1
+
+    function start()
+    {
+        count_element.innerHTML = parseInt(count_element.innerHTML) + 1
+        
+        if(val > parseInt(target_element.value))
+        {
+            ret_element.innerHTML = "猜小了"
+            ret_element.className = "false"
+            target_element.value = null
+        }
+        else if(val < parseInt(target_element.value))
+        {
+            ret_element.innerHTML = "猜大了"
+            ret_element.className = "false"
+            target_element.value = null
+        }
+        else
+        {
+            ret_element.innerHTML = "恭喜你猜对了！"
+            ret_element.className = "true"
+        }
+    }
+</script>
+</html>
