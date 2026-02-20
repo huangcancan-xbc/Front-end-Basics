@@ -1,0 +1,145 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url(https://github.com/huangcancan-xbc/Drawing-bed/blob/master/Blog/20250307201300705.jpg?raw=true);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.nav {
+    width: 100%;
+    height: 70px;
+    color: aliceblue;
+    background-color: rgba(64, 64, 64, 0.75);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.nav .space {
+    flex: 1;
+}
+
+.nav img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.nav .brand {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nav a {
+    color: aliceblue;
+    text-decoration: none;
+    margin-left: 28px;
+}
+
+.nav a:hover {
+    color: #c7f9ff;
+}
+
+.edit_blog {
+    width: min(1120px, 94vw);
+    height: calc(100vh - 90px);
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar {
+    height: 66px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.toolbar input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.9);
+    outline: none;
+}
+
+.toolbar button {
+    width: 190px;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #26eb53, #1ec845);
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.toolbar button:hover {
+    filter: brightness(0.96);
+}
+
+#editor {
+    margin-top: 12px;
+    flex: 1;
+    min-height: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#editor .editormd {
+    margin-bottom: 0;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .nav .brand {
+        font-size: 18px;
+    }
+
+    .nav a {
+        margin-left: 14px;
+        font-size: 14px;
+    }
+
+    .edit_blog {
+        width: 96vw;
+        height: calc(100vh - 82px);
+    }
+
+    .toolbar {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .toolbar input {
+        height: 48px;
+        font-size: 16px;
+    }
+
+    .toolbar button {
+        width: 100%;
+        height: 48px;
+        font-size: 22px;
+    }
+
+    #editor {
+        margin-top: 10px;
+    }
+}

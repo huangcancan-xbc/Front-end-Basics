@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写博客 - 我的博客系统</title>
+    <link rel="stylesheet" href="./CSS/47.css">
+    <link rel="stylesheet" href="./editor.md/css/editormd.min.css">
+</head>
+<body>
+    <div class="nav">
+        <img src="https://avatars.githubusercontent.com/u/170857044?v=4" alt="头像">
+        <span class="brand">我的博客系统</span>
+        <span class="space"></span>
+        <a href="46 登录页.html">首页</a>
+        <a href="47 编辑页.html">写博客</a>
+        <a href="#">注销</a>
+    </div>
+
+    <div class="edit_blog">
+        <div class="toolbar">
+            <input type="text" placeholder="请输入文章标题">
+            <button type="button">发布文章</button>
+        </div>
+
+        <div id="editor">
+            <textarea style="display: none;">###开始编写博客</textarea>
+        </div>
+    </div>
+
+    <script src="./JS/jquery.min.js"></script>
+    <script src="./editor.md/lib/marked.min.js"></script>
+    <script src="./editor.md/lib/prettify.min.js"></script>
+    <script src="./editor.md/editormd.min.js"></script>
+    <script>
+        editormd("editor", {
+            width: "100%",
+            height: "calc(100vh - 200px)",
+            path: "./editor.md/lib/",
+            placeholder: "开始编写博客",
+            markdown: "###开始编写博客"
+        });
+    </script>
+</body>
+</html>
