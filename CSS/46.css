@@ -1,0 +1,159 @@
+﻿* {
+    margin: 0px;    /* 所有元素的外边距 */
+    padding: 0px;   /* 所有元素的内边距 */
+    box-sizing: border-box; /* 盒模型 */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-image: url(https://github.com/huangcancan-xbc/Drawing-bed/blob/master/Blog/20250307201300705.jpg?raw=true);
+    background-size: cover;     /* 让背景图片完全覆盖其容器，同时保证图片的宽高比不变（不会拉伸变形） */
+    background-repeat: no-repeat; /* 背景图片不重复 */
+}
+
+.nav {
+    width: 100%;
+    height: 70px;
+    color:aliceblue;
+    background-color: rgba(128, 128, 128, 0.5);
+    display: flex;
+    justify-content: left;  /* 左对齐 */
+    align-items: center;    /* 垂直居中 */
+}
+
+.nav .space
+{
+    width: 65%;     /* 占位符 */
+}
+
+.nav img{
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.nav a {
+    color: aliceblue;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+
+.login {
+    height: calc(100% - 50px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 登录卡片 */
+.login > div {
+    width: min(440px, 92vw);
+    padding: 34px 30px 26px;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(3px);
+}
+
+.login h3 {
+    font-size: 28px;
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 22px;
+}
+
+.login > div > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.login span {
+    width: 68px;
+    margin-right: 10px;
+    color: #374151;
+    font-size: 15px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    flex: 1;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.96);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+    border-color: #0891b2;
+    box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.16);
+}
+
+.login input[type="submit"] {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.login input[type="submit"]:hover {
+    box-shadow: 0 10px 18px rgba(2, 132, 199, 0.28);
+    transform: translateY(-1px);
+}
+
+.login input[type="submit"]:active {
+    transform: translateY(0);
+    opacity: 0.92;
+}
+
+.login a {
+    display: inline-block;
+    margin-left: auto;
+    color: #0369a1;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .nav a {
+        margin-left: 14px;
+        font-size: 14px;
+    }
+
+    .login > div {
+        padding: 24px 16px 18px;
+    }
+
+    .login h3 {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+
+    .login > div > div {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .login span {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 6px;
+    }
+}
